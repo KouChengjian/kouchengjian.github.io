@@ -1,4 +1,5 @@
 # Site settings
+#gems: [jekyll-paginate]
 name: KouChengjian
 email: hui793114465@163.com
 author: KouChengjian
