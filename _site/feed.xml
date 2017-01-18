@@ -1,291 +1,246 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HyG</title>
+    <title>KouChengjian</title>
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 18 Jan 2017 08:54:49 +0800</pubDate>
-    <lastBuildDate>Wed, 18 Jan 2017 08:54:49 +0800</lastBuildDate>
+    <pubDate>Wed, 18 Jan 2017 10:31:50 +0800</pubDate>
+    <lastBuildDate>Wed, 18 Jan 2017 10:31:50 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
-        <title>前端如何写一个精确的倒计时</title>
-        <description>
-关于写倒计时大家可能都都比较熟悉，使用 setTimeout 或 setInterval 就可以搞定。几秒钟或者几分钟的倒计时这样写没有问题，但是如果是长时间的倒计时，这样写就会不准确。如果用户修改了他的设备时间，这样的倒计时就没有意义了。今天就说说写一个精确的倒计时的方法。
+        <title>Java Base</title>
+        <description>&lt;h1 id=&quot;想成为java大牛吗不妨来学习这25个要点&quot;&gt;想成为Java大牛吗?不妨来学习这25个要点。&lt;/h1&gt;
 
-&lt;img src=&quot;https://img.alicdn.com/tfs/TB18QnlOpXXXXcVXpXXXXXXXXXX-388-256.png&quot; alt=&quot;&quot; /&gt;
+&lt;h5 id=&quot;1-你需要精通面向对象分析与设计ooaood涉及模式gofj2eedp以及综合模式你应该了解uml尤其是classobjectinteraction以及statediagrams&quot;&gt;1. 你需要精通面向对象分析与设计(OOA/OOD)、涉及模式(GOF，J2EEDP)以及综合模式。你应该了解UML，尤其是class、object、interaction以及statediagrams。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;2-你需要学习java语言的基础知识以及它的核心类库collectionsserializationstreamsnetworkingmultithreadingreflectioneventhandlingniolocalization以及其他&quot;&gt;2. 你需要学习Java语言的基础知识以及它的核心类库(collections、serialization、streams、networking、multithreading、reflection、event、handling、NIO、localization以及其他)。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;3-你应该了解jvmclassloadersclassreflect以及垃圾回收的基本工作机制等你应该有能力反编译一个类文件并且明白一些基本的汇编指令&quot;&gt;3. 你应该了解JVM、classloaders、classreflect以及垃圾回收的基本工作机制等。你应该有能力反编译一个类文件并且明白一些基本的汇编指令。&lt;/h5&gt;
 
+&lt;h5 id=&quot;4-如果你将要写客户端程序你需要学习web的小应用程序applet必需掌握gui设计的思想和方法以及桌面程序的swingawtswt你还应该对ui部件的javabean组件模式有所了解javabeans也被应用在jsp中以把业务逻辑从表现层中分离出来&quot;&gt;4. 如果你将要写客户端程序，你需要学习Web的小应用程序(applet)，必需掌握GUI设计的思想和方法，以及桌面程序的SWING、AWT、SWT。你还应该对UI部件的JavaBEAN组件模式有所了解。JavaBEANS也被应用在JSP中以把业务逻辑从表现层中分离出来。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;5-你需要学习java数据库技术并且会使用至少一种persistenceorm构架例如hibernatejdococobasetoplinkinsideliberator国产jdo红工厂软件或者ibatis&quot;&gt;5. 你需要学习Java数据库技术，并且会使用至少一种persistence/ORM构架，例如hibernate、JDO、CocoBase、TopLink、InsideLiberator(国产JDO红工厂软件)或者iBatis。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;6-你还应该了解对象关系的阻抗失配的含义以及它是如何影响业务对象与关系型数据库的交互和它的运行结果还需要掌握不同的数据库产品运用比如oraclemysqlsql-server&quot;&gt;6. 你还应该了解对象关系的阻抗失配的含义以及它是如何影响业务对象与关系型数据库的交互，和它的运行结果。还需要掌握不同的数据库产品运用，比如Oracle、MySQL、SQL server。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;7-你需要学习servletsjsp以及jstlstandardtaglibraries和可以选择的第三方taglibraries&quot;&gt;7. 你需要学习Servlets、JSP，以及JSTL(StandardTagLibraries)和可以选择的第三方TagLibraries。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;8-你需要熟悉主流的网页框架例如jsfstrutstapestrycocoonwebwork以及他们下面的涉及模式如mvcmodel2&quot;&gt;8. 你需要熟悉主流的网页框架，例如JSF、Struts、Tapestry、Cocoon、WebWork，以及他们下面的涉及模式，如MVC/MODEL2。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;9-你需要学习如何使用及管理web服务器例如tomcatresinjrun并且知道如何在其基础上扩展和维护web程序&quot;&gt;9. 你需要学习如何使用及管理Web服务器，例如tomcat、resin、Jrun，并且知道如何在其基础上扩展和维护Web程序。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;10-你需要学习分布式对象以及远程api例如rmi和rmiiiop&quot;&gt;10. 你需要学习分布式对象以及远程API，例如RMI和RMI/IIOP。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;11-你需要掌握各种流行中间件技术标准和与java结合实现比如tuxedocroba当然也包括javaee本身&quot;&gt;11. 你需要掌握各种流行中间件技术标准和与Java结合实现，比如Tuxedo、CROBA，当然也包括JavaEE本身。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;12-你需要学习最少一种的xmlapi例如jaxpjavaapiforxmlprocessingjdomjavaforxmldocumentobjectmodeldom4j或jaxrjavaapiforxmlregistries&quot;&gt;12. 你需要学习最少一种的XMLAPI，例如JAXP(JavaAPIforXMLProcessing)、JDOM(JavaforXMLDocumentObjectModel)、DOM4J或JAXR(JavaAPIforXMLRegistries)。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;13-你应该学习如何利用java的api和工具来构建webservice例如jax-rpcjavaapiforxmlrpcsaajsoapwithattachmentsapiforjavajaxbjavaarchitectureforxmlbindingjaxmjavaapiforxmlmessagingjaxrjavaapiforxmlregistries或者jwsdpjavawebservicesdeveloperpack&quot;&gt;13. 你应该学习如何利用Java的API和工具来构建WebService。例如JAX-RPC(JavaAPIforXML/RPC)、SAAJ(SOAPwithAttachmentsAPIforJava)、JAXB(JavaArchitectureforXMLBinding)、JAXM(JavaAPIforXMLMessaging)、JAXR(JavaAPIforXMLRegistries)或者JWSDP(JavaWebServicesDeveloperPack)。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;14-你需要学习一门轻量级应用程序框架例如springpicocontaineravalon以及它们的iocdi风格setterconstructorinterfaceinjection&quot;&gt;14. 你需要学习一门轻量级应用程序框架，例如spring、PicoContainer、Avalon，以及它们的IoC/DI风格(setter，constructor，interfaceinjection)。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;15-你需要熟悉不同的j2ee技术例如jndijavanaminganddirectoryinterfacejmsjavamessageservicejtajtsjavatransactionapijavatransactionservicejmxjavamanagementextensions以及javamail&quot;&gt;15. 你需要熟悉不同的J2EE技术，例如JNDI(JavaNamingandDirectoryInterface)、JMS(JavaMessageService)、JTA/JTS(JavaTransactionAPI/JavaTransactionService)、JMX(JavaManagementeXtensions)，以及JavaMail。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;16-你需要学习企业级javabeansejb以及它们的不同组件模式statelessstatefulsessionbeansentitybeans包含bean-managedpersistencebmp或者container-managedpersistencecmp和它的ejb-ql或者message-drivenbeansmdb&quot;&gt;16. 你需要学习企业级JavaBeans(EJB)以及它们的不同组件模式：Stateless/StatefulSessionBeans、EntityBeans(包含Bean-ManagedPersistence[BMP]或者Container-ManagedPersistence[CMP]和它的EJB-QL)，或者Message-DrivenBeans(MDB)。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;17-你需要学习如何管理与配置一个j2ee应用程序服务器如weblogicjboss等并且利用它的附加服务例如簇类连接池以及分布式处理支援你还需要了解如何在它上面封装和配置应用程序并且能够监控调整它的性能&quot;&gt;17. 你需要学习如何管理与配置一个J2EE应用程序服务器，如WebLogic、JBoss等，并且利用它的附加服务，例如簇类，连接池以及分布式处理支援。你还需要了解如何在它上面封装和配置应用程序并且能够监控、调整它的性能。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;18-你需要熟悉面向方面的程序设计以及面向属性的程序设计这两个都被很容易混淆的缩写为aop以及他们的主流java规格和执行例如aspectj和aspectwerkz&quot;&gt;18. 你需要熟悉面向方面的程序设计以及面向属性的程序设计(这两个都被很容易混淆的缩写为AOP)，以及他们的主流Java规格和执行。例如AspectJ和AspectWerkz。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;19-你需要熟悉对不同有用的api和frame-work等来为你服务例如log4jloggingtracingquartzschedulingjgroupsnetworkgroupcommunicationjcachedistributedcachinglucenefull-textsearchjakartacommons等等&quot;&gt;19. 你需要熟悉对不同有用的API和frame work等来为你服务。例如Log4J(logging/tracing)、Quartz(scheduling)、JGroups(networkgroupcommunication)、JCache(distributedcaching)、Lucene(full-textsearch)、JakartaCommons等等。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;20-你应该熟练掌握一种javaide例如sunonenetbeansintellijidea或者eclipse有些人更喜欢vi或emacs来编写文件随便你用什么了&quot;&gt;20. 你应该熟练掌握一种JavaIDE例如sunOne、netBeans、IntelliJIDEA或者Eclipse。(有些人更喜欢VI或EMACS来编写文件。随便你用什么了)&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;21-java精确的说是有些配置是冗长的它需要很多的人工代码例如ejb所以你需要熟悉代码生成工具例如xdoclet&quot;&gt;21. Java(精确的说是有些配置)是冗长的，它需要很多的人工代码(例如EJB)，所以你需要熟悉代码生成工具，例如XDoclet。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;22-你需要熟悉一种单元测试体系jnunit并且学习不同的生成部署工具antmaven&quot;&gt;22. 你需要熟悉一种单元测试体系(JNunit)，并且学习不同的生成、部署工具(Ant，Maven)。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;23-你需要熟悉一些在java开发中经常用到的软件工程过程例如ruprationalunifiedprocessandagilemethodologies&quot;&gt;23. 你需要熟悉一些在Java开发中经常用到的软件工程过程。例如RUP(RationalUnifiedProcess)andAgilemethodologies。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;24-你还需要紧跟java发展的步伐比如现在可以深入的学习webwork20&quot;&gt;24. 你还需要紧跟Java发展的步伐，比如现在可以深入的学习Webwork2.0。&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 id=&quot;25-你必需要对实际项目的开发流程有所了解至少要有两个有实际应用价值的项目而不是练习项目因为现在企业看重的是你有没有实际的开发经验真正开发经验的体现就是你做的项目也就是有实际应用的项目&quot;&gt;25. 你必需要对实际项目的开发流程有所了解，至少要有两个有实际应用价值的项目，而不是练习项目!因为现在企业看重的是你有没有实际的开发经验，真正开发经验的体现就是你做的项目，也就是有实际应用的项目!&lt;/h5&gt;
+&lt;br /&gt;
 </description>
-        <pubDate>Fri, 25 Nov 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/11/25/how-to-write-a-count-down/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/11/25/how-to-write-a-count-down/</guid>
+        <pubDate>Mon, 16 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/01/16/java-base/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/16/java-base/</guid>
         
-        <category>countdown</category>
-        
-        <category>JavaScript</category>
-        
-        
-        <category>JavaScript</category>
         
       </item>
     
       <item>
-        <title>使用 JavaScript 创建并下载文件</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#先上代码&quot; id=&quot;markdown-toc-先上代码&quot;&gt;先上代码&lt;/a&gt;&lt;/li&gt;
+        <title>Mac Install Jekyll</title>
+        <description>#Mac下Jekyll安装
+需要环境支持
+Ruby，Mac自带，如果没有请安装
+
+安装Gem
+Gem是Ruby第三方插件管理器
+下载Gem到本地后，在终端输入如下代码
+
+&lt;h2 id=&quot;检查gem版本&quot;&gt;检查gem版本&lt;/h2&gt;
+gem -v
+&lt;h2 id=&quot;更新gem提示权限&quot;&gt;更新Gem(提示权限)&lt;/h2&gt;
+gem update –system
+官网安装教程：https://rubygems.org/pages/download
+
+gem update –system。这一步需要翻墙，否则会出现404错误。解决办法参考：https://ruby.taobao.org/
+
+安装jekyll
+
+上面安装的Gem派上用场
+
+安装jekyll(提示权限)
+$ gem install jekyll
+安装成功之后，查看版本号
+$ jekyll -v
+使用jekyll
+jekyll安装成功之后，可以在终端上执行 jekyll 命令来使用了，有两种方法，一种是自己新建一个jekyll博客，另外一种是使用现成的博客。
+
+我比较懒，当然是直接使用现成的博客了。
+
+我使用的主题：http://enml.github.io/site
+
+不浪费口水，直接撸
+下载主题，在终端中使用命令cd到该主题根目录下；
+
+&lt;h2 id=&quot;博客生成默认生成再_site目录下当然也可以在配置文件中自定义&quot;&gt;博客生成，默认生成再_site目录下，当然也可以在配置文件中自定义&lt;/h2&gt;
+jekyll build
+&lt;h2 id=&quot;开启jekyll本地预览&quot;&gt;开启jekyll本地预览&lt;/h2&gt;
+jekyll server
+在浏览器中输入 http://localhost:4000 即可访问博客站点
+不能访问请检查_config.yml配置文件是否需要修改
+
+遇到的坑：
+
+较老版本使用 jekyll –server
+执行 jekyll build 命令报错
+
+ERROR: YOUR SITE COULD NOT BE BUILT:
+       Missing dependency: rdiscount
+解决：rdiscount是 Jekyll依赖的一个包，可以通过安装这个包来解决。
+
+安装rdiscount
+$ gem install rdiscount
+如果缺少其他包，同理使用 gem install 解决
+
+安装各种依赖包的时候可能会提示权限不足，比如安装rdiscount提示我/usr/bin没有写入权限
+解决：
+
+sudo chmod -R 777
+安装完毕后将/usr/bin权限设置回操作前的权限。否则下次终端启动时可能报错。
+
+上传GitHub
+
+再_post中放入md文件，文件格式必须遵从YEAR-MONTH-DAY-title.md。
+上传至GitHub后，我们就可以在线查看博客了。
+贴上我的jekyll博客地址 http://pyrinelaw.github.io
+
+附：
+
+由权限问题导致终端启动报错，请使用Mac磁盘工具修复
+新建jekyll博客教程：http://www.jekyll.org/ (╯□╰ 需要翻墙)
+也可以去这个网站上找各种主题：http://jekyllthemes.org/
+尊重他人劳动成果，引用他人主题请注明出处
+</description>
+        <pubDate>Sun, 15 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/01/15/mac-install-jekyll/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/15/mac-install-jekyll/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>MySQL添加用户、删除用户与授权</title>
+        <description>* content
+{:toc}
+
+
+MySql中添加用户,新建数据库,用户授权,删除用户,修改密码(注意每行后边都跟个;表示一个命令语句结束)
+&lt;br/&gt;
+
+</description>
+        <pubDate>Wed, 11 Jan 2017 16:50:02 +0800</pubDate>
+        <link>http://localhost:4000/2017/01/11/mysql-add-user/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/11/mysql-add-user/</guid>
+        
+        <category>MySql</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux Install Mysql</title>
+        <description>﻿—
+layout: post
+title:  “Linux 安装 MySql”
+date:   2017-01-11 16:50:02 +0800
+categories: Java
+tag: MySql
+#excerpt: 
+—
+
+
+1、首先检查系统中是否已经安装了MySQL&lt;br /&gt;
+sudo netstat -tap | grep mysql
+
+2、如果没有安装，则安装MySQL.&lt;br /&gt;
+sudo apt-get install mysql-server mysql-client
+
+</description>
+        <pubDate>Wed, 11 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/01/11/linux-install-mysql/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/11/linux-install-mysql/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Windows 上安装 Jekyll</title>
+        <description>
+目前，网上有许多Jekyll的安装方法，大都相似，为了方便更多准备学习Jekyll的人，特翻译如下：
+
+共分为以下几个重要步骤
+&lt;ul&gt;
+  &lt;li&gt;安装 Ruby&lt;/li&gt;
+  &lt;li&gt;安装 DevKit&lt;/li&gt;
+  &lt;li&gt;安装 Jekyll&lt;/li&gt;
+  &lt;li&gt;安装 Pygments
+    &lt;ul&gt;
+      &lt;li&gt;安装 Python&lt;/li&gt;
+      &lt;li&gt;安装 ‘Easy Install’&lt;/li&gt;
+      &lt;li&gt;安装 Pygments&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;启动 Jekyll&lt;/li&gt;
+  &lt;li&gt;故障诊断&lt;/li&gt;
 &lt;/ul&gt;
 
-本文将介绍如何使用 JavaScript 创建文件，并自动/手动将文件下载。这在导出原始数据时会比较方便。
-
-&lt;h2 id=&quot;先上代码&quot;&gt;先上代码&lt;/h2&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
- * 创建并下载文件
- * @param  {String} fileName 文件名
- * @param  {String} content  文件内容
- */&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createAndDownloadFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aTag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;aTag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;download&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;aTag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createObjectURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;aTag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;revokeObjectURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-很简单对吧，直接调用这个方法，传入文件名和文件内容，程序新建 a 标签，新建 Blob 对象，将文件名赋给 a 标签，同时将 Blob 对象作为 Url 也赋给 a 标签，模拟点击事件，自动下载成功，最后再回收内存。下面我们来看看具体是怎么操作的。
-
 </description>
-        <pubDate>Tue, 22 Nov 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/11/22/js-create-file-and-download/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/11/22/js-create-file-and-download/</guid>
-        
-        <category>文件</category>
-        
-        <category>下载</category>
-        
-        <category>JavaScript</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>Fisher–Yates shuffle 洗牌算法</title>
-        <description>
-简单来说 Fisher–Yates shuffle 算法是一个用来将一个有限集合生成一个随机排列的算法（数组随机排序）。这个算法生成的随机排列是等概率的。同时这个算法非常高效。
-
-本文主要介绍这个算法的来源、演变、原理。并举出一个例子为大家清晰的描述每次迭代过程。最后使用 JavaScript 代码将算法实现。
-
-&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Riffle_shuffle.jpg/320px-Riffle_shuffle.jpg&quot; alt=&quot;&quot; /&gt;
-
-</description>
-        <pubDate>Sun, 16 Oct 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/10/16/shuffle-algorithm/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/10/16/shuffle-algorithm/</guid>
-        
-        <category>算法</category>
-        
-        <category>shuffle</category>
-        
-        <category>乱序</category>
-        
-        <category>洗牌</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>Git 如何 clone 非 master 分支的代码</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#问题描述&quot; id=&quot;markdown-toc-问题描述&quot;&gt;问题描述&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;问题描述&quot;&gt;问题描述&lt;/h2&gt;
-
-我们每次使用命令
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git@gitlab.xxx.com:xxxxx.git
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-默认 clone 的是这个仓库的 master 分支。如果最新的代码不在 master 分支上，该如何拿到呢？如下图所示，最新的代码可能在&lt;code class=&quot;highlighter-rouge&quot;&gt;daily/1.4.1&lt;/code&gt;分支上，我们希望拿到这个分支上的代码。
-
-</description>
-        <pubDate>Thu, 07 Jul 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/07/07/git-clone-not-master-branch/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/07/07/git-clone-not-master-branch/</guid>
-        
-        <category>Git</category>
-        
-        <category>GitHub</category>
-        
-        <category>分支</category>
-        
-        
-        <category>GitHub</category>
-        
-      </item>
-    
-      <item>
-        <title>如何使用 babel</title>
-        <description>
-&lt;a href=&quot;https://babeljs.io/&quot;&gt;Babel&lt;/a&gt; 用于将 ES6 的代码转化为 ES5，使得 ES6 可以在目前的浏览器环境下使用。学习使用 babel 是为了使用 ES2015 做准备。本文将介绍如何使用 babel，以及一些相关的配置。
-
-</description>
-        <pubDate>Tue, 14 Jun 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/06/14/how-to-use-babel/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/06/14/how-to-use-babel/</guid>
-        
-        <category>ES2015</category>
-        
-        <category>ES6</category>
-        
-        <category>ES5</category>
-        
-        <category>babel</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>JavaScript 语言精粹笔记3-方法、毒瘤等</title>
-        <description>
-记录一下阅读蝴蝶书的笔记，本篇为书中最后一部分：方法、代码风格、优美的特性、毒瘤、糟粕等。
-
-</description>
-        <pubDate>Fri, 10 Jun 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/06/10/JavaScript-good-parts-note3/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/06/10/JavaScript-good-parts-note3/</guid>
-        
-        <category>函数</category>
-        
-        <category>JavaScript</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>JavaScript 语言精粹笔记2-继承、数组、正则表达式</title>
-        <description>
-记录一下阅读蝴蝶书的笔记，本篇为书中以下章节的笔记：继承、数组和正则表达式。
-
-</description>
-        <pubDate>Wed, 08 Jun 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/06/08/JavaScript-good-parts-note2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/06/08/JavaScript-good-parts-note2/</guid>
-        
-        <category>继承</category>
-        
-        <category>对象</category>
-        
-        <category>原型</category>
-        
-        <category>Array</category>
-        
-        <category>正则</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>JavaScript 语言精粹笔记1-语法、对象、函数</title>
-        <description>
-记录一下阅读蝴蝶书的笔记，本篇为第一部分包含书中前三章内容：语法、对象和函数。
-
-</description>
-        <pubDate>Tue, 07 Jun 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/06/07/JavaScript-good-parts-note1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/06/07/JavaScript-good-parts-note1/</guid>
-        
-        <category>对象</category>
-        
-        <category>函数</category>
-        
-        <category>this</category>
-        
-        <category>闭包</category>
-        
-        <category>面向对象</category>
-        
-        <category>作用域</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>浅谈正则表达式中的分组和引用</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#问题&quot; id=&quot;markdown-toc-问题&quot;&gt;问题&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-由正则表达式如何匹配相同字符出发，讲讲正则表达式中的选择、分组和引用。
-
-&lt;h2 id=&quot;问题&quot;&gt;问题&lt;/h2&gt;
-
-在外刊君读者群中看到有人提出这样的一个需求：
-
-&lt;blockquote&gt;
-  把字符串切成连续相同字符的正则怎么写？比如&lt;code class=&quot;highlighter-rouge&quot;&gt;abbcccdddd&lt;/code&gt;切成&lt;code class=&quot;highlighter-rouge&quot;&gt;a,bb,ccc,dddd&lt;/code&gt;
-&lt;/blockquote&gt;
-
-之前我对正则表达式也是略有研究，想尝试一下。其实我对正则表达式的学习基本完全来源于犀牛书的第10章，真正看懂这一章，我觉得操作正则表达式应该不在话下。
-
-</description>
-        <pubDate>Fri, 06 May 2016 11:40:18 +0800</pubDate>
-        <link>http://localhost:4000/2016/05/06/regular-expression-group/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/06/regular-expression-group/</guid>
-        
-        <category>正则</category>
-        
-        <category>分组</category>
-        
-        <category>Regular</category>
-        
-        
-        <category>JavaScript</category>
-        
-      </item>
-    
-      <item>
-        <title>对这个 jekyll 博客主题的改版和重构</title>
-        <description>
-本文主要说明对这个博客主题的改版和代码重构的过程。这个简洁高雅的博客主题受到了很多朋友的喜欢。在写第一版界面时，我对前端并不是很熟悉，对&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;也不熟悉。现在距离当时也一年了，对自己当时写的代码也不太满意了，同时&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;如今也已经升级了，目前最新版为3.1.2。因此我在临近毕业尚未入职前做一下博客主题的代码重构和改版吧。
-
-主要想做这些事情有：添加归档，添加标签，添加分类页面，主页显示文章摘要，代码去除 jQuery 和 BootStrap，优化移动端显示，将所有变量写入配置文件&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;中等。再优化一些细节吧。希望更多人会喜欢。
-
-</description>
-        <pubDate>Sat, 12 Mar 2016 11:40:18 +0800</pubDate>
-        <link>http://localhost:4000/2016/03/12/jekyll-theme-version-2.0/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/03/12/jekyll-theme-version-2.0/</guid>
+        <pubDate>Tue, 10 Jan 2017 09:48:01 +0800</pubDate>
+        <link>http://localhost:4000/2017/01/10/windows-install-jekyll/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/10/windows-install-jekyll/</guid>
         
         <category>jekyll</category>
         
-        <category>端口</category>
         
-        <category>markdown</category>
+        <category>jekyll</category>
         
-        <category>Foxit</category>
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>Jekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.</description>
+        <pubDate>Tue, 10 Jan 2017 08:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/01/10/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/10/welcome-to-jekyll/</guid>
         
-        <category>RubyGems</category>
-        
-        <category>HTML</category>
-        
-        <category>CSS</category>
+        <category>jekyll</category>
         
         
         <category>jekyll</category>

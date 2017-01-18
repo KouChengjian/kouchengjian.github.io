@@ -1,21 +1,26 @@
 ﻿---
 layout: post
-title:  "Linux Install MySql"
+title:  "Linux 安装 MySql"
 date:   2017-01-11 16:50:02 +0800
-categories: JAVA
+categories: Java
 tag: MySql
+#excerpt: 
 ---
 
 * content
 {:toc}
 
 
-# MySql 
-
-### 1、首先检查系统中是否已经安装了MySQL
+1、首先检查系统中是否已经安装了MySQL<br/>
 sudo netstat -tap | grep mysql
-### 2、如果没有安装，则安装MySQL.
+
+2、如果没有安装，则安装MySQL.<br/>
 sudo apt-get install mysql-server mysql-client
+
+
+
+
+
 ### 3、测试安装是否成功：
 sudo netstat -tap | grep mysql
 ### 4、也可通过登录MySQL测试

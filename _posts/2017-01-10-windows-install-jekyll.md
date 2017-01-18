@@ -4,17 +4,11 @@ title:  "Windows 上安装 Jekyll"
 date:   2017-01-10 09:48:01 +0800
 categories: jekyll
 tag: jekyll
+#excerpt: 当年创建 jekyll 时默认的一篇文章，没什么意义，我也一直没删除，留个纪念吧。
 ---
 
 * content
 {:toc}
-
-
-# Windows 上安装 Jekyll
-
-Jekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.
-
-原文链接： http://blog.csdn.net/kong5090041/article/details/38408211
 
 目前，网上有许多Jekyll的安装方法，大都相似，为了方便更多准备学习Jekyll的人，特翻译如下：
 
@@ -28,6 +22,11 @@ Jekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown�
   - 安装 Pygments
 - 启动 Jekyll
 - 故障诊断
+
+
+
+
+
 
 # 安装 Ruby
 1、前往 http://rubyinstaller.org/downloads/
@@ -230,7 +229,7 @@ gem install wdm
 
 ### 8、为了能够让这里网站正常运行，这里需要删除_post文件夹里的文件（应该有一个xxxx-xx-xx-welcome-to- jekyll.markdown字样的文件），因为这个文件内部使用了语法高亮插件（另外不删，则可以修改配置文件禁用该语法高亮插件，即修改根目录下 _config.yml中的pygments: true为false便可。），这个需要另外安装，不再本文范围内，不删会导致生成的静态页面有问题，因时间有限本文暂不提此问题。
 
-
+原文链接： http://blog.csdn.net/kong5090041/article/details/38408211
 
 
 
