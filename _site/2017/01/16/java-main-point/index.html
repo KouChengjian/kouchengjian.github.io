@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Java学习要点 </title>
+    <meta name="description" content="想成为Java大牛吗?不妨来学习这25个要点。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/01/16/java-main-point/">
+    <link rel="alternate" type="application/rss+xml" title="KouChengjian" href="http://localhost:4000/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cf8506e0ef223e57ff6239944e5d46a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-72449510-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">KouChengjian</a>
+        <small>Android Dev Engineer</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            <i class="fa fa-bookmark"></i>Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            <i class="fa fa-play"></i>Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            <i class="fa fa-heart"></i>About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Java学习要点 </h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-01-16
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a-->
+        <a href="/tag/#Java" title="Tag: Java" rel="tag">Java</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#1-你需要精通面向对象分析与设计ooaood涉及模式gofj2eedp以及综合模式你应该了解uml尤其是classobjectinteraction以及statediagrams" id="markdown-toc-1-你需要精通面向对象分析与设计ooaood涉及模式gofj2eedp以及综合模式你应该了解uml尤其是classobjectinteraction以及statediagrams">1. 你需要精通面向对象分析与设计(OOA/OOD)、涉及模式(GOF，J2EEDP)以及综合模式。你应该了解UML，尤其是class、object、interaction以及statediagrams。</a></li>
+  <li><a href="#2-你需要学习java语言的基础知识以及它的核心类库collectionsserializationstreamsnetworkingmultithreadingreflectioneventhandlingniolocalization以及其他" id="markdown-toc-2-你需要学习java语言的基础知识以及它的核心类库collectionsserializationstreamsnetworkingmultithreadingreflectioneventhandlingniolocalization以及其他">2. 你需要学习Java语言的基础知识以及它的核心类库(collections、serialization、streams、networking、multithreading、reflection、event、handling、NIO、localization以及其他)。</a></li>
+  <li><a href="#3-你应该了解jvmclassloadersclassreflect以及垃圾回收的基本工作机制等你应该有能力反编译一个类文件并且明白一些基本的汇编指令" id="markdown-toc-3-你应该了解jvmclassloadersclassreflect以及垃圾回收的基本工作机制等你应该有能力反编译一个类文件并且明白一些基本的汇编指令">3. 你应该了解JVM、classloaders、classreflect以及垃圾回收的基本工作机制等。你应该有能力反编译一个类文件并且明白一些基本的汇编指令。</a></li>
+  <li><a href="#4-如果你将要写客户端程序你需要学习web的小应用程序applet必需掌握gui设计的思想和方法以及桌面程序的swingawtswt你还应该对ui部件的javabean组件模式有所了解javabeans也被应用在jsp中以把业务逻辑从表现层中分离出来" id="markdown-toc-4-如果你将要写客户端程序你需要学习web的小应用程序applet必需掌握gui设计的思想和方法以及桌面程序的swingawtswt你还应该对ui部件的javabean组件模式有所了解javabeans也被应用在jsp中以把业务逻辑从表现层中分离出来">4. 如果你将要写客户端程序，你需要学习Web的小应用程序(applet)，必需掌握GUI设计的思想和方法，以及桌面程序的SWING、AWT、SWT。你还应该对UI部件的JavaBEAN组件模式有所了解。JavaBEANS也被应用在JSP中以把业务逻辑从表现层中分离出来。</a></li>
+  <li><a href="#5-你需要学习java数据库技术并且会使用至少一种persistenceorm构架例如hibernatejdococobasetoplinkinsideliberator国产jdo红工厂软件或者ibatis" id="markdown-toc-5-你需要学习java数据库技术并且会使用至少一种persistenceorm构架例如hibernatejdococobasetoplinkinsideliberator国产jdo红工厂软件或者ibatis">5. 你需要学习Java数据库技术，并且会使用至少一种persistence/ORM构架，例如hibernate、JDO、CocoBase、TopLink、InsideLiberator(国产JDO红工厂软件)或者iBatis。</a></li>
+  <li><a href="#6-你还应该了解对象关系的阻抗失配的含义以及它是如何影响业务对象与关系型数据库的交互和它的运行结果还需要掌握不同的数据库产品运用比如oraclemysqlsql-server" id="markdown-toc-6-你还应该了解对象关系的阻抗失配的含义以及它是如何影响业务对象与关系型数据库的交互和它的运行结果还需要掌握不同的数据库产品运用比如oraclemysqlsql-server">6. 你还应该了解对象关系的阻抗失配的含义以及它是如何影响业务对象与关系型数据库的交互，和它的运行结果。还需要掌握不同的数据库产品运用，比如Oracle、MySQL、SQL server。</a></li>
+  <li><a href="#7-你需要学习servletsjsp以及jstlstandardtaglibraries和可以选择的第三方taglibraries" id="markdown-toc-7-你需要学习servletsjsp以及jstlstandardtaglibraries和可以选择的第三方taglibraries">7. 你需要学习Servlets、JSP，以及JSTL(StandardTagLibraries)和可以选择的第三方TagLibraries。</a></li>
+  <li><a href="#8-你需要熟悉主流的网页框架例如jsfstrutstapestrycocoonwebwork以及他们下面的涉及模式如mvcmodel2" id="markdown-toc-8-你需要熟悉主流的网页框架例如jsfstrutstapestrycocoonwebwork以及他们下面的涉及模式如mvcmodel2">8. 你需要熟悉主流的网页框架，例如JSF、Struts、Tapestry、Cocoon、WebWork，以及他们下面的涉及模式，如MVC/MODEL2。</a></li>
+  <li><a href="#9-你需要学习如何使用及管理web服务器例如tomcatresinjrun并且知道如何在其基础上扩展和维护web程序" id="markdown-toc-9-你需要学习如何使用及管理web服务器例如tomcatresinjrun并且知道如何在其基础上扩展和维护web程序">9. 你需要学习如何使用及管理Web服务器，例如tomcat、resin、Jrun，并且知道如何在其基础上扩展和维护Web程序。</a></li>
+  <li><a href="#10-你需要学习分布式对象以及远程api例如rmi和rmiiiop" id="markdown-toc-10-你需要学习分布式对象以及远程api例如rmi和rmiiiop">10. 你需要学习分布式对象以及远程API，例如RMI和RMI/IIOP。</a></li>
+  <li><a href="#11-你需要掌握各种流行中间件技术标准和与java结合实现比如tuxedocroba当然也包括javaee本身" id="markdown-toc-11-你需要掌握各种流行中间件技术标准和与java结合实现比如tuxedocroba当然也包括javaee本身">11. 你需要掌握各种流行中间件技术标准和与Java结合实现，比如Tuxedo、CROBA，当然也包括JavaEE本身。</a></li>
+  <li><a href="#12-你需要学习最少一种的xmlapi例如jaxpjavaapiforxmlprocessingjdomjavaforxmldocumentobjectmodeldom4j或jaxrjavaapiforxmlregistries" id="markdown-toc-12-你需要学习最少一种的xmlapi例如jaxpjavaapiforxmlprocessingjdomjavaforxmldocumentobjectmodeldom4j或jaxrjavaapiforxmlregistries">12. 你需要学习最少一种的XMLAPI，例如JAXP(JavaAPIforXMLProcessing)、JDOM(JavaforXMLDocumentObjectModel)、DOM4J或JAXR(JavaAPIforXMLRegistries)。</a></li>
+  <li><a href="#13-你应该学习如何利用java的api和工具来构建webservice例如jax-rpcjavaapiforxmlrpcsaajsoapwithattachmentsapiforjavajaxbjavaarchitectureforxmlbindingjaxmjavaapiforxmlmessagingjaxrjavaapiforxmlregistries或者jwsdpjavawebservicesdeveloperpack" id="markdown-toc-13-你应该学习如何利用java的api和工具来构建webservice例如jax-rpcjavaapiforxmlrpcsaajsoapwithattachmentsapiforjavajaxbjavaarchitectureforxmlbindingjaxmjavaapiforxmlmessagingjaxrjavaapiforxmlregistries或者jwsdpjavawebservicesdeveloperpack">13. 你应该学习如何利用Java的API和工具来构建WebService。例如JAX-RPC(JavaAPIforXML/RPC)、SAAJ(SOAPwithAttachmentsAPIforJava)、JAXB(JavaArchitectureforXMLBinding)、JAXM(JavaAPIforXMLMessaging)、JAXR(JavaAPIforXMLRegistries)或者JWSDP(JavaWebServicesDeveloperPack)。</a></li>
+  <li><a href="#14-你需要学习一门轻量级应用程序框架例如springpicocontaineravalon以及它们的iocdi风格setterconstructorinterfaceinjection" id="markdown-toc-14-你需要学习一门轻量级应用程序框架例如springpicocontaineravalon以及它们的iocdi风格setterconstructorinterfaceinjection">14. 你需要学习一门轻量级应用程序框架，例如spring、PicoContainer、Avalon，以及它们的IoC/DI风格(setter，constructor，interfaceinjection)。</a></li>
+  <li><a href="#15-你需要熟悉不同的j2ee技术例如jndijavanaminganddirectoryinterfacejmsjavamessageservicejtajtsjavatransactionapijavatransactionservicejmxjavamanagementextensions以及javamail" id="markdown-toc-15-你需要熟悉不同的j2ee技术例如jndijavanaminganddirectoryinterfacejmsjavamessageservicejtajtsjavatransactionapijavatransactionservicejmxjavamanagementextensions以及javamail">15. 你需要熟悉不同的J2EE技术，例如JNDI(JavaNamingandDirectoryInterface)、JMS(JavaMessageService)、JTA/JTS(JavaTransactionAPI/JavaTransactionService)、JMX(JavaManagementeXtensions)，以及JavaMail。</a></li>
+  <li><a href="#16-你需要学习企业级javabeansejb以及它们的不同组件模式statelessstatefulsessionbeansentitybeans包含bean-managedpersistencebmp或者container-managedpersistencecmp和它的ejb-ql或者message-drivenbeansmdb" id="markdown-toc-16-你需要学习企业级javabeansejb以及它们的不同组件模式statelessstatefulsessionbeansentitybeans包含bean-managedpersistencebmp或者container-managedpersistencecmp和它的ejb-ql或者message-drivenbeansmdb">16. 你需要学习企业级JavaBeans(EJB)以及它们的不同组件模式：Stateless/StatefulSessionBeans、EntityBeans(包含Bean-ManagedPersistence[BMP]或者Container-ManagedPersistence[CMP]和它的EJB-QL)，或者Message-DrivenBeans(MDB)。</a></li>
+  <li><a href="#17-你需要学习如何管理与配置一个j2ee应用程序服务器如weblogicjboss等并且利用它的附加服务例如簇类连接池以及分布式处理支援你还需要了解如何在它上面封装和配置应用程序并且能够监控调整它的性能" id="markdown-toc-17-你需要学习如何管理与配置一个j2ee应用程序服务器如weblogicjboss等并且利用它的附加服务例如簇类连接池以及分布式处理支援你还需要了解如何在它上面封装和配置应用程序并且能够监控调整它的性能">17. 你需要学习如何管理与配置一个J2EE应用程序服务器，如WebLogic、JBoss等，并且利用它的附加服务，例如簇类，连接池以及分布式处理支援。你还需要了解如何在它上面封装和配置应用程序并且能够监控、调整它的性能。</a></li>
+  <li><a href="#18-你需要熟悉面向方面的程序设计以及面向属性的程序设计这两个都被很容易混淆的缩写为aop以及他们的主流java规格和执行例如aspectj和aspectwerkz" id="markdown-toc-18-你需要熟悉面向方面的程序设计以及面向属性的程序设计这两个都被很容易混淆的缩写为aop以及他们的主流java规格和执行例如aspectj和aspectwerkz">18. 你需要熟悉面向方面的程序设计以及面向属性的程序设计(这两个都被很容易混淆的缩写为AOP)，以及他们的主流Java规格和执行。例如AspectJ和AspectWerkz。</a></li>
+  <li><a href="#19-你需要熟悉对不同有用的api和frame-work等来为你服务例如log4jloggingtracingquartzschedulingjgroupsnetworkgroupcommunicationjcachedistributedcachinglucenefull-textsearchjakartacommons等等" id="markdown-toc-19-你需要熟悉对不同有用的api和frame-work等来为你服务例如log4jloggingtracingquartzschedulingjgroupsnetworkgroupcommunicationjcachedistributedcachinglucenefull-textsearchjakartacommons等等">19. 你需要熟悉对不同有用的API和frame work等来为你服务。例如Log4J(logging/tracing)、Quartz(scheduling)、JGroups(networkgroupcommunication)、JCache(distributedcaching)、Lucene(full-textsearch)、JakartaCommons等等。</a></li>
+  <li><a href="#20-你应该熟练掌握一种javaide例如sunonenetbeansintellijidea或者eclipse有些人更喜欢vi或emacs来编写文件随便你用什么了" id="markdown-toc-20-你应该熟练掌握一种javaide例如sunonenetbeansintellijidea或者eclipse有些人更喜欢vi或emacs来编写文件随便你用什么了">20. 你应该熟练掌握一种JavaIDE例如sunOne、netBeans、IntelliJIDEA或者Eclipse。(有些人更喜欢VI或EMACS来编写文件。随便你用什么了)</a></li>
+  <li><a href="#21-java精确的说是有些配置是冗长的它需要很多的人工代码例如ejb所以你需要熟悉代码生成工具例如xdoclet" id="markdown-toc-21-java精确的说是有些配置是冗长的它需要很多的人工代码例如ejb所以你需要熟悉代码生成工具例如xdoclet">21. Java(精确的说是有些配置)是冗长的，它需要很多的人工代码(例如EJB)，所以你需要熟悉代码生成工具，例如XDoclet。</a></li>
+  <li><a href="#22-你需要熟悉一种单元测试体系jnunit并且学习不同的生成部署工具antmaven" id="markdown-toc-22-你需要熟悉一种单元测试体系jnunit并且学习不同的生成部署工具antmaven">22. 你需要熟悉一种单元测试体系(JNunit)，并且学习不同的生成、部署工具(Ant，Maven)。</a></li>
+  <li><a href="#23-你需要熟悉一些在java开发中经常用到的软件工程过程例如ruprationalunifiedprocessandagilemethodologies" id="markdown-toc-23-你需要熟悉一些在java开发中经常用到的软件工程过程例如ruprationalunifiedprocessandagilemethodologies">23. 你需要熟悉一些在Java开发中经常用到的软件工程过程。例如RUP(RationalUnifiedProcess)andAgilemethodologies。</a></li>
+  <li><a href="#24-你还需要紧跟java发展的步伐比如现在可以深入的学习webwork20" id="markdown-toc-24-你还需要紧跟java发展的步伐比如现在可以深入的学习webwork20">24. 你还需要紧跟Java发展的步伐，比如现在可以深入的学习Webwork2.0。</a></li>
+  <li><a href="#25-你必需要对实际项目的开发流程有所了解至少要有两个有实际应用价值的项目而不是练习项目因为现在企业看重的是你有没有实际的开发经验真正开发经验的体现就是你做的项目也就是有实际应用的项目" id="markdown-toc-25-你必需要对实际项目的开发流程有所了解至少要有两个有实际应用价值的项目而不是练习项目因为现在企业看重的是你有没有实际的开发经验真正开发经验的体现就是你做的项目也就是有实际应用的项目">25. 你必需要对实际项目的开发流程有所了解，至少要有两个有实际应用价值的项目，而不是练习项目!因为现在企业看重的是你有没有实际的开发经验，真正开发经验的体现就是你做的项目，也就是有实际应用的项目!</a></li>
+</ul>
+
+<p>想成为Java大牛吗?不妨来学习这25个要点。</p>
+
+<h5 id="1-你需要精通面向对象分析与设计ooaood涉及模式gofj2eedp以及综合模式你应该了解uml尤其是classobjectinteraction以及statediagrams">1. 你需要精通面向对象分析与设计(OOA/OOD)、涉及模式(GOF，J2EEDP)以及综合模式。你应该了解UML，尤其是class、object、interaction以及statediagrams。</h5>
+<p><br /></p>
+<h5 id="2-你需要学习java语言的基础知识以及它的核心类库collectionsserializationstreamsnetworkingmultithreadingreflectioneventhandlingniolocalization以及其他">2. 你需要学习Java语言的基础知识以及它的核心类库(collections、serialization、streams、networking、multithreading、reflection、event、handling、NIO、localization以及其他)。</h5>
+<p><br /></p>
+<h5 id="3-你应该了解jvmclassloadersclassreflect以及垃圾回收的基本工作机制等你应该有能力反编译一个类文件并且明白一些基本的汇编指令">3. 你应该了解JVM、classloaders、classreflect以及垃圾回收的基本工作机制等。你应该有能力反编译一个类文件并且明白一些基本的汇编指令。</h5>
+
+<h5 id="4-如果你将要写客户端程序你需要学习web的小应用程序applet必需掌握gui设计的思想和方法以及桌面程序的swingawtswt你还应该对ui部件的javabean组件模式有所了解javabeans也被应用在jsp中以把业务逻辑从表现层中分离出来">4. 如果你将要写客户端程序，你需要学习Web的小应用程序(applet)，必需掌握GUI设计的思想和方法，以及桌面程序的SWING、AWT、SWT。你还应该对UI部件的JavaBEAN组件模式有所了解。JavaBEANS也被应用在JSP中以把业务逻辑从表现层中分离出来。</h5>
+<p><br /></p>
+<h5 id="5-你需要学习java数据库技术并且会使用至少一种persistenceorm构架例如hibernatejdococobasetoplinkinsideliberator国产jdo红工厂软件或者ibatis">5. 你需要学习Java数据库技术，并且会使用至少一种persistence/ORM构架，例如hibernate、JDO、CocoBase、TopLink、InsideLiberator(国产JDO红工厂软件)或者iBatis。</h5>
+<p><br /></p>
+<h5 id="6-你还应该了解对象关系的阻抗失配的含义以及它是如何影响业务对象与关系型数据库的交互和它的运行结果还需要掌握不同的数据库产品运用比如oraclemysqlsql-server">6. 你还应该了解对象关系的阻抗失配的含义以及它是如何影响业务对象与关系型数据库的交互，和它的运行结果。还需要掌握不同的数据库产品运用，比如Oracle、MySQL、SQL server。</h5>
+<p><br /></p>
+<h5 id="7-你需要学习servletsjsp以及jstlstandardtaglibraries和可以选择的第三方taglibraries">7. 你需要学习Servlets、JSP，以及JSTL(StandardTagLibraries)和可以选择的第三方TagLibraries。</h5>
+<p><br /></p>
+<h5 id="8-你需要熟悉主流的网页框架例如jsfstrutstapestrycocoonwebwork以及他们下面的涉及模式如mvcmodel2">8. 你需要熟悉主流的网页框架，例如JSF、Struts、Tapestry、Cocoon、WebWork，以及他们下面的涉及模式，如MVC/MODEL2。</h5>
+<p><br /></p>
+<h5 id="9-你需要学习如何使用及管理web服务器例如tomcatresinjrun并且知道如何在其基础上扩展和维护web程序">9. 你需要学习如何使用及管理Web服务器，例如tomcat、resin、Jrun，并且知道如何在其基础上扩展和维护Web程序。</h5>
+<p><br /></p>
+<h5 id="10-你需要学习分布式对象以及远程api例如rmi和rmiiiop">10. 你需要学习分布式对象以及远程API，例如RMI和RMI/IIOP。</h5>
+<p><br /></p>
+<h5 id="11-你需要掌握各种流行中间件技术标准和与java结合实现比如tuxedocroba当然也包括javaee本身">11. 你需要掌握各种流行中间件技术标准和与Java结合实现，比如Tuxedo、CROBA，当然也包括JavaEE本身。</h5>
+<p><br /></p>
+<h5 id="12-你需要学习最少一种的xmlapi例如jaxpjavaapiforxmlprocessingjdomjavaforxmldocumentobjectmodeldom4j或jaxrjavaapiforxmlregistries">12. 你需要学习最少一种的XMLAPI，例如JAXP(JavaAPIforXMLProcessing)、JDOM(JavaforXMLDocumentObjectModel)、DOM4J或JAXR(JavaAPIforXMLRegistries)。</h5>
+<p><br /></p>
+<h5 id="13-你应该学习如何利用java的api和工具来构建webservice例如jax-rpcjavaapiforxmlrpcsaajsoapwithattachmentsapiforjavajaxbjavaarchitectureforxmlbindingjaxmjavaapiforxmlmessagingjaxrjavaapiforxmlregistries或者jwsdpjavawebservicesdeveloperpack">13. 你应该学习如何利用Java的API和工具来构建WebService。例如JAX-RPC(JavaAPIforXML/RPC)、SAAJ(SOAPwithAttachmentsAPIforJava)、JAXB(JavaArchitectureforXMLBinding)、JAXM(JavaAPIforXMLMessaging)、JAXR(JavaAPIforXMLRegistries)或者JWSDP(JavaWebServicesDeveloperPack)。</h5>
+<p><br /></p>
+<h5 id="14-你需要学习一门轻量级应用程序框架例如springpicocontaineravalon以及它们的iocdi风格setterconstructorinterfaceinjection">14. 你需要学习一门轻量级应用程序框架，例如spring、PicoContainer、Avalon，以及它们的IoC/DI风格(setter，constructor，interfaceinjection)。</h5>
+<p><br /></p>
+<h5 id="15-你需要熟悉不同的j2ee技术例如jndijavanaminganddirectoryinterfacejmsjavamessageservicejtajtsjavatransactionapijavatransactionservicejmxjavamanagementextensions以及javamail">15. 你需要熟悉不同的J2EE技术，例如JNDI(JavaNamingandDirectoryInterface)、JMS(JavaMessageService)、JTA/JTS(JavaTransactionAPI/JavaTransactionService)、JMX(JavaManagementeXtensions)，以及JavaMail。</h5>
+<p><br /></p>
+<h5 id="16-你需要学习企业级javabeansejb以及它们的不同组件模式statelessstatefulsessionbeansentitybeans包含bean-managedpersistencebmp或者container-managedpersistencecmp和它的ejb-ql或者message-drivenbeansmdb">16. 你需要学习企业级JavaBeans(EJB)以及它们的不同组件模式：Stateless/StatefulSessionBeans、EntityBeans(包含Bean-ManagedPersistence[BMP]或者Container-ManagedPersistence[CMP]和它的EJB-QL)，或者Message-DrivenBeans(MDB)。</h5>
+<p><br /></p>
+<h5 id="17-你需要学习如何管理与配置一个j2ee应用程序服务器如weblogicjboss等并且利用它的附加服务例如簇类连接池以及分布式处理支援你还需要了解如何在它上面封装和配置应用程序并且能够监控调整它的性能">17. 你需要学习如何管理与配置一个J2EE应用程序服务器，如WebLogic、JBoss等，并且利用它的附加服务，例如簇类，连接池以及分布式处理支援。你还需要了解如何在它上面封装和配置应用程序并且能够监控、调整它的性能。</h5>
+<p><br /></p>
+<h5 id="18-你需要熟悉面向方面的程序设计以及面向属性的程序设计这两个都被很容易混淆的缩写为aop以及他们的主流java规格和执行例如aspectj和aspectwerkz">18. 你需要熟悉面向方面的程序设计以及面向属性的程序设计(这两个都被很容易混淆的缩写为AOP)，以及他们的主流Java规格和执行。例如AspectJ和AspectWerkz。</h5>
+<p><br /></p>
+<h5 id="19-你需要熟悉对不同有用的api和frame-work等来为你服务例如log4jloggingtracingquartzschedulingjgroupsnetworkgroupcommunicationjcachedistributedcachinglucenefull-textsearchjakartacommons等等">19. 你需要熟悉对不同有用的API和frame work等来为你服务。例如Log4J(logging/tracing)、Quartz(scheduling)、JGroups(networkgroupcommunication)、JCache(distributedcaching)、Lucene(full-textsearch)、JakartaCommons等等。</h5>
+<p><br /></p>
+<h5 id="20-你应该熟练掌握一种javaide例如sunonenetbeansintellijidea或者eclipse有些人更喜欢vi或emacs来编写文件随便你用什么了">20. 你应该熟练掌握一种JavaIDE例如sunOne、netBeans、IntelliJIDEA或者Eclipse。(有些人更喜欢VI或EMACS来编写文件。随便你用什么了)</h5>
+<p><br /></p>
+<h5 id="21-java精确的说是有些配置是冗长的它需要很多的人工代码例如ejb所以你需要熟悉代码生成工具例如xdoclet">21. Java(精确的说是有些配置)是冗长的，它需要很多的人工代码(例如EJB)，所以你需要熟悉代码生成工具，例如XDoclet。</h5>
+<p><br /></p>
+<h5 id="22-你需要熟悉一种单元测试体系jnunit并且学习不同的生成部署工具antmaven">22. 你需要熟悉一种单元测试体系(JNunit)，并且学习不同的生成、部署工具(Ant，Maven)。</h5>
+<p><br /></p>
+<h5 id="23-你需要熟悉一些在java开发中经常用到的软件工程过程例如ruprationalunifiedprocessandagilemethodologies">23. 你需要熟悉一些在Java开发中经常用到的软件工程过程。例如RUP(RationalUnifiedProcess)andAgilemethodologies。</h5>
+<p><br /></p>
+<h5 id="24-你还需要紧跟java发展的步伐比如现在可以深入的学习webwork20">24. 你还需要紧跟Java发展的步伐，比如现在可以深入的学习Webwork2.0。</h5>
+<p><br /></p>
+<h5 id="25-你必需要对实际项目的开发流程有所了解至少要有两个有实际应用价值的项目而不是练习项目因为现在企业看重的是你有没有实际的开发经验真正开发经验的体现就是你做的项目也就是有实际应用的项目">25. 你必需要对实际项目的开发流程有所了解，至少要有两个有实际应用价值的项目，而不是练习项目!因为现在企业看重的是你有没有实际的开发经验，真正开发经验的体现就是你做的项目，也就是有实际应用的项目!</h5>
+<p><br /></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/01/15/mac-install-jekyll/">Mac 安装 Jekyll</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/01/16/java-main-point/" data-title="Java学习要点 " data-url="http://localhost:4000/2017/01/16/java-main-point/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "hygblog"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我前端之旅的沿途风景！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/Gaohaoyang" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:gaohaoyang126@126.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/3115521wh" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>  
+            <a href="https://www.zhihu.com/people/gaohaoyang" title="Zhihu"><i class="iconfont icon-daoruzhihu"></i></a>  
+            <a href="https://twitter.com/gaohaoyang126" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>  
+            <a href="https://www.facebook.com/gaohaoyang.water" title="Facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>   
+            <a href="https://www.linkedin.com/in/gaohaoyang" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>  
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
