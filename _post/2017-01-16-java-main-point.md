@@ -1,4 +1,20 @@
-# 想成为Java大牛吗?不妨来学习这25个要点。
+---
+layout: post
+title:  "Java学习要点 "
+date:   2017-01-16 11:00:00 +0800
+categories: Java
+tag: Java
+#excerpt: 
+---
+
+* content
+{:toc}
+
+想成为Java大牛吗?不妨来学习这25个要点。
+
+
+
+
 
 ##### 1. 你需要精通面向对象分析与设计(OOA/OOD)、涉及模式(GOF，J2EEDP)以及综合模式。你应该了解UML，尤其是class、object、interaction以及statediagrams。 
 <br/>

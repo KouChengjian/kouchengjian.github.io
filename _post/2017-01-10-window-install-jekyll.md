@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Windows 上安装 Jekyll"
+title:  "Windows 安装 Jekyll"
 date:   2017-01-10 09:48:01 +0800
 categories: jekyll
 tag: jekyll
@@ -12,6 +12,10 @@ tag: jekyll
 
 目前，网上有许多Jekyll的安装方法，大都相似，为了方便更多准备学习Jekyll的人，特翻译如下：
 
+
+
+
+
 共分为以下几个重要步骤
 - 安装 Ruby
 - 安装 DevKit
@@ -22,11 +26,6 @@ tag: jekyll
   - 安装 Pygments
 - 启动 Jekyll
 - 故障诊断
-
-
-
-
-
 
 # 安装 Ruby
 1、前往 http://rubyinstaller.org/downloads/

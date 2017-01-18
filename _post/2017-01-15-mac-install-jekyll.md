@@ -1,6 +1,20 @@
-#Mac下Jekyll安装
-需要环境支持
-Ruby，Mac自带，如果没有请安装
+---
+layout: post
+title:  "Mac 安装 Jekyll"
+date:   2017-01-15 13:08:02 +0800
+categories: jekyll
+tag: jekyll
+#excerpt: 
+---
+
+* content
+{:toc}
+
+Mac下Jekyll安装需要环境支持Ruby，Mac自带，如果没有请安装
+
+
+
+
 
 安装Gem
 Gem是Ruby第三方插件管理器
