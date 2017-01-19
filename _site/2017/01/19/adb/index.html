@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Demo</title>
-    <meta name="description" content="">
+    <title>ADB</title>
+    <meta name="description" content="在pc下经常会发生adb端口被占用，遇到这种情况只要找到那个服务kill掉就好了（经常是豌豆荚或者酷狗，运行jekyll时候4000端口经常被Foxmail的一个服务占用/(ㄒoㄒ)/~~）">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/demo/">
+    <link rel="canonical" href="http://localhost:4000/2017/01/19/adb/">
     <link rel="alternate" type="application/rss+xml" title="KouChengjian" href="http://localhost:4000/feed.xml ">
 
 
@@ -106,8 +106,8 @@
                     
                     <li>
                         
-                        <a class="active" href="/demo/">
-                            
+                        <a href="/demo/">
+                        
                             <i class="fa fa-play"></i>Demo
                         </a>
                     </li>
@@ -137,33 +137,149 @@
 </header>
 
 
-        <div class="page clearfix" demo>
+        <div class="page clearfix" post>
     <div class="left">
-        <h1>Demo</h1>
+        <h1>ADB</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-01-19
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Android" title="Category: Android" rel="category">Android</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#ADB" title="Tag: ADB" rel="tag">ADB</a-->
+        <a href="/tag/#ADB" title="Tag: ADB" rel="tag">ADB</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
         <hr>
-        <div class="grid">
-    <!-- <div class="grid-item">
-        <a href="http://gaohaoyang.github.io/ghost-button-css3/">
-            <img src="http://7q5cdt.com1.z0.glb.clouddn.com/DemoGhost-Button.png">
-        </a>
-        <h3 class="demo-title">
-            <a href="http://gaohaoyang.github.io/ghost-button-css3/">Ghost Button 幽灵按钮</a>
-        </h3>
-        <p>主要技术：CSS3</p>
-        <p>使用 CSS3 中的旋转、缩放、过渡、动画等效果，制作出很酷的按钮效果。
-            <a href="https://github.com/Gaohaoyang/ghost-button-css3">源代码 <i class="fa fa-code" aria-hidden="true"></i></a>
-        </p>
-    </div> -->
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#5037为adb默认端口-查看该端口情况如下" id="markdown-toc-5037为adb默认端口-查看该端口情况如下">5037为adb默认端口 查看该端口情况如下：</a></li>
+  <li><a href="#发现6540占用了-5037端口继续查看6540的task发现是wandoujia--如下所示" id="markdown-toc-发现6540占用了-5037端口继续查看6540的task发现是wandoujia--如下所示">发现6540占用了 5037端口，继续查看6540的task，发现是wandoujia  .如下所示</a></li>
+</ul>
+
+<p>在pc下经常会发生adb端口被占用，遇到这种情况只要找到那个服务kill掉就好了<br />
+（经常是豌豆荚或者酷狗，运行jekyll时候4000端口经常被Foxmail的一个服务占用/(ㄒoㄒ)/~~）</p>
+
+<h3 id="5037为adb默认端口-查看该端口情况如下">5037为adb默认端口 查看该端口情况如下：</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  netstat -aon|findstr "5037"
+  TCP    127.0.0.1:5037         0.0.0.0:0              LISTENING       6540
+</code></pre>
 </div>
 
-<script src=" /js/masonry.pkgd.min.js " charset="utf-8"></script>
-<script src=" /js/waterfall.js " charset="utf-8"></script>
+<h3 id="发现6540占用了-5037端口继续查看6540的task发现是wandoujia--如下所示">发现6540占用了 5037端口，继续查看6540的task，发现是wandoujia  .如下所示</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    tasklist|findstr "6540"
+    wandoujia_daemon.exe          6540 Console                    1      4,276 K
+</code></pre>
+</div>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/01/16/java-main-point/">Java学习要点 </a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
 
 
-<!-- <h2 id="comments">Comments</h2> -->
-
+        <h2 id="comments">Comments</h2>
+        
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="http://localhost:4000/demo/" data-title="Demo" data-url="http://localhost:4000/demo/"></div>
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/01/19/adb/" data-title="ADB" data-url="http://localhost:4000/2017/01/19/adb/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -185,8 +301,39 @@
 
 
 
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
     </div>
 </div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
 
 
     <footer class="site-footer">
