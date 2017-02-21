@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>MySQL添加用户、删除用户与授权</title>
-    <meta name="description" content="MySql中添加用户,新建数据库,用户授权,删除用户,修改密码(注意每行后边都跟个;表示一个命令语句结束)">
+    <title>Android 我见知 - 性能优化</title>
+    <meta name="description" content="  布局优化          Android UI渲染机制      避免过度绘制Overdraw      优化布局层级      避免嵌套过多无用布局      Hierarchy Viewer        内存优化          什么是内存      获取Android系统内存信息      内存回...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/2017/01/11/mysql-add-user/">
+    <link rel="canonical" href="http://localhost:4000/2017/02/21/property-optimize/">
     <link rel="alternate" type="application/rss+xml" title="KouChengjian" href="http://localhost:4000/feed.xml ">
 
 
@@ -139,11 +139,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>MySQL添加用户、删除用户与授权</h1>
+        <h1>Android 我见知 - 性能优化</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2017-01-11
+                <i class="fa fa-calendar"></i>2017-02-21
             </div>
 
             <div class="label-card">
@@ -163,7 +163,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+        <a href="/category/#Android" title="Category: Android" rel="category">Android</a>
     
   
 
@@ -180,8 +180,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#MySql" title="Tag: MySql" rel="tag">MySql</a-->
-        <a href="/tag/#MySql" title="Tag: MySql" rel="tag">MySql</a>
+        <!--a href="/tag/#Android+%E6%88%91%E8%A7%81%E7%9F%A5" title="Tag: Android 我见知" rel="tag">Android 我见知</a-->
+        <a href="/tag/#Android 我见知" title="Tag: Android 我见知" rel="tag">Android 我见知</a>
     
   
 
@@ -193,140 +193,89 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#2为用户授权" id="markdown-toc-2为用户授权">2.为用户授权</a></li>
-  <li><a href="#3-删除用户" id="markdown-toc-3-删除用户">3. 删除用户</a></li>
-  <li><a href="#4-修改指定用户密码" id="markdown-toc-4-修改指定用户密码">4. 修改指定用户密码</a></li>
-  <li><a href="#5-列出所有数据库" id="markdown-toc-5-列出所有数据库">5. 列出所有数据库</a></li>
-  <li><a href="#6-切换数据库" id="markdown-toc-6-切换数据库">6. 切换数据库</a></li>
-  <li><a href="#7-列出所有表" id="markdown-toc-7-列出所有表">7. 列出所有表</a></li>
-  <li><a href="#8-显示数据表结构" id="markdown-toc-8-显示数据表结构">8. 显示数据表结构</a></li>
-  <li><a href="#9-删除数据库和数据表" id="markdown-toc-9-删除数据库和数据表">9. 删除数据库和数据表</a></li>
+  <li><a href="#布局优化" id="markdown-toc-布局优化">布局优化</a>    <ul>
+      <li><a href="#android-ui渲染机制" id="markdown-toc-android-ui渲染机制">Android UI渲染机制</a></li>
+      <li><a href="#避免过度绘制overdraw" id="markdown-toc-避免过度绘制overdraw">避免过度绘制Overdraw</a></li>
+      <li><a href="#优化布局层级" id="markdown-toc-优化布局层级">优化布局层级</a></li>
+      <li><a href="#避免嵌套过多无用布局" id="markdown-toc-避免嵌套过多无用布局">避免嵌套过多无用布局</a></li>
+      <li><a href="#hierarchy-viewer" id="markdown-toc-hierarchy-viewer">Hierarchy Viewer</a></li>
+    </ul>
+  </li>
+  <li><a href="#内存优化" id="markdown-toc-内存优化">内存优化</a>    <ul>
+      <li><a href="#什么是内存" id="markdown-toc-什么是内存">什么是内存</a></li>
+      <li><a href="#获取android系统内存信息" id="markdown-toc-获取android系统内存信息">获取Android系统内存信息</a></li>
+      <li><a href="#内存回收" id="markdown-toc-内存回收">内存回收</a></li>
+      <li><a href="#内存优化-1" id="markdown-toc-内存优化-1">内存优化</a></li>
+    </ul>
+  </li>
+  <li><a href="#lint工具" id="markdown-toc-lint工具">Lint工具</a></li>
+  <li><a href="#使用as的memory-monitor工具" id="markdown-toc-使用as的memory-monitor工具">使用AS的Memory Monitor工具</a></li>
+  <li><a href="#使用traceview工具" id="markdown-toc-使用traceview工具">使用TraceView工具</a></li>
+  <li><a href="#使用mat工具" id="markdown-toc-使用mat工具">使用MAT工具</a></li>
 </ul>
 
-<p>MySql中添加用户,新建数据库,用户授权,删除用户,修改密码(注意每行后边都跟个;表示一个命令语句结束)
-<br /></p>
+<h2 id="布局优化">布局优化</h2>
+<h3 id="android-ui渲染机制">Android UI渲染机制</h3>
+<p>要保持画面的流畅，需要保证画面的帧率达到40fps每秒到60fps每秒。系统通过VSYNC信号触发对UI的渲染，重绘，期间隔时间为16ms，如果系统每次渲染的间隔都保持在16ms，那么我们所看到的界面基本流畅。如果不能保证在16ms之内渲染完成，那么就会照常丢帧现象。</p>
 
-<p>1.新建用户<br /></p>
+<p>Android提供了检测UI渲染时间的工具，在开发者选项中选择Profile Rendering，选择On screen bars 。 蓝色代表测量绘制Display List的时间， 红绳代表OpenGL渲染时间，还死代表GPU处理时间，绿色代表VSYNC时间16ms。</p>
 
-<p>　　1.1 登录MYSQL：<br /></p>
+<h3 id="避免过度绘制overdraw">避免过度绘制Overdraw</h3>
+<p>过度绘制会浪费很多的CPU，GPU资源
+在开放者选项中使用 Enable GPU OverDraw 来检查，优化布局，增大蓝色区域，减少红色区域。</p>
 
-<p>　　@&gt;mysql -u root -p</p>
+<h3 id="优化布局层级">优化布局层级</h3>
+<p>降低View树的高度，Google在API文档中建议View树高度不宜超过10层。</p>
 
-<p>　　@&gt;密码</p>
+<h3 id="避免嵌套过多无用布局">避免嵌套过多无用布局</h3>
+<p>使用<include>标签重用Layout。<br />
+使用<ViewStub>实现View的延迟加载</ViewStub></include></p>
 
-<p>　　1.2 创建用户：</p>
+<h3 id="hierarchy-viewer">Hierarchy Viewer</h3>
+<p>这个只有非加密过的手机可以使用，加密手机可以使用开源项目 View Server ，然后进行分析</p>
 
-<p>　　mysql&gt; insert into mysql.user(Host,User,Password) values(“localhost”,”test”,password(“1234”));</p>
+<h2 id="内存优化">内存优化</h2>
+<h3 id="什么是内存">什么是内存</h3>
+<p><a href="">请点击</a></p>
 
-<p>　　这样就创建了一个名为：test 密码为：1234 的用户。</p>
+<h3 id="获取android系统内存信息">获取Android系统内存信息</h3>
+<p>通过setting - Developer options - Process Stats打开。</p>
 
-<p>　　注意：此处的”localhost”，是指该用户只能在本地登录，不能在另外一台机器上远程登录。如果想远程登录的话，将”localhost”改为”%”，表示在任何一台电脑上都可以登录。也可以指定某台机器可以远程登录。</p>
+<h3 id="内存回收">内存回收</h3>
+<p>Java是由系统自动回收的（GC），但是合适进行开发者无法控制，即使调用System.gc()方法，也只是建议系统GC。</p>
 
-<p>　　1.3 然后登录一下：</p>
+<h3 id="内存优化-1">内存优化</h3>
+<ul>
+  <li>Bitmap优化
+    <ul>
+      <li>即使回收内存</li>
+      <li>使用图片缓存</li>
+    </ul>
+  </li>
+  <li>代码优化
+    <ul>
+      <li>对常量使用static修饰符。</li>
+      <li>使用静态方法，静态方法比普通方法提高15%左右的访问速度。</li>
+      <li>减少不必要的成员变量。</li>
+      <li>减少不必要的对象。</li>
+      <li>尽量不要使用枚举。</li>
+      <li>对Cursor、Receiver、Sensor、File等对象，要非常注意对他们的创建、回收、注册，解注册。</li>
+      <li>避免使用IOC框架，IOC通常使用注解，反射来进行实现，虽然Java对反射的效率已经进行了很好的优化，但是大量使用反射依然会带来性能下降问题。</li>
+      <li>使用RenderScript、OpenGL来进行非常复杂的绘图操作。</li>
+      <li>使用SurfaceView来替代View进行大量、频繁的绘图操作</li>
+      <li>尽量使用视图缓存，而不是每次都执行inflate()方法解析视图。</li>
+    </ul>
+  </li>
+</ul>
 
-<p>　　mysql&gt;exit;</p>
+<h2 id="lint工具">Lint工具</h2>
+<p>eclipse和Android studio都集成自带。</p>
 
-<p>　　@&gt;mysql -u test -p</p>
+<h2 id="使用as的memory-monitor工具">使用AS的Memory Monitor工具</h2>
 
-<p>　　@&gt;输入密码</p>
+<h2 id="使用traceview工具">使用TraceView工具</h2>
 
-<p>　　mysql&gt;登录成功</p>
-
-<p><br /></p>
-<h3 id="2为用户授权">2.为用户授权</h3>
-
-<p>　　授权格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码”;　</p>
-
-<p>　　2.1 登录MYSQL（有ROOT权限），这里以ROOT身份登录：</p>
-
-<p>　　@&gt;mysql -u root -p</p>
-
-<p>　　@&gt;密码</p>
-
-<p>　　2.2 首先为用户创建一个数据库(testDB)：</p>
-
-<p>　　mysql&gt;create database testDB;</p>
-
-<p>　　2.3 授权test用户拥有testDB数据库的所有权限（某个数据库的所有权限）：</p>
-
-<p>　　 mysql&gt;grant all privileges on testDB.* to test@localhost identified by ‘1234’;</p>
-
-<p>　　mysql&gt;flush privileges;//刷新系统权限表</p>
-
-<p>　　格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码”;　</p>
-
-<p>　　2.4 如果想指定部分权限给一用户，可以这样来写:</p>
-
-<p>　　mysql&gt;grant select,update on testDB.* to test@localhost identified by ‘1234’;</p>
-
-<p>　　mysql&gt;flush privileges; //刷新系统权限表</p>
-
-<p>　　2.5 授权test用户拥有所有数据库的某些权限： 　</p>
-
-<p>　　mysql&gt;grant select,delete,update,create,drop on <em>.</em> to test@”%” identified by “1234”;</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code> //test用户对所有数据库都有select,delete,update,create,drop 权限。
-</code></pre>
-</div>
-
-<p>　 //@”%” 表示对所有非本地主机授权，不包括localhost。（localhost地址设为127.0.0.1，如果设为真实的本地地址，不知道是否可以，没有验证。）</p>
-
-<p>　//对localhost授权：加上一句grant all privileges on testDB.* to test@localhost identified by ‘1234’;即可。</p>
-
-<p><br /></p>
-<h3 id="3-删除用户">3. 删除用户</h3>
-
-<p>　　@&gt;mysql -u root -p</p>
-
-<p>　　@&gt;密码</p>
-
-<p>　　mysql&gt;Delete FROM user Where User=’test’ and Host=’localhost’;</p>
-
-<p>　　mysql&gt;flush privileges;</p>
-
-<p>　　mysql&gt;drop database testDB; //删除用户的数据库</p>
-
-<p>删除账户及权限：&gt;drop user 用户名@’%’;</p>
-
-<p>　　　　　　　　&gt;drop user 用户名@ localhost;</p>
-
-<p><br /></p>
-<h3 id="4-修改指定用户密码">4. 修改指定用户密码</h3>
-
-<p>　　@&gt;mysql -u root -p</p>
-
-<p>　　@&gt;密码</p>
-
-<p>　　mysql&gt;update mysql.user set password=password(‘新密码’) where User=”test” and Host=”localhost”;</p>
-
-<p>　　mysql&gt;flush privileges;</p>
-
-<p><br /></p>
-<h3 id="5-列出所有数据库">5. 列出所有数据库</h3>
-
-<p>　　mysql&gt;show database;</p>
-
-<p><br /></p>
-<h3 id="6-切换数据库">6. 切换数据库</h3>
-
-<p>　　mysql&gt;use ‘数据库名’;</p>
-
-<p><br /></p>
-<h3 id="7-列出所有表">7. 列出所有表</h3>
-
-<p>　　mysql&gt;show tables;</p>
-
-<p><br /></p>
-<h3 id="8-显示数据表结构">8. 显示数据表结构</h3>
-
-<p>　　mysql&gt;describe 表名;</p>
-
-<p><br /></p>
-<h3 id="9-删除数据库和数据表">9. 删除数据库和数据表</h3>
-
-<p>　　mysql&gt;drop database 数据库名;</p>
-
-<p>　　mysql&gt;drop table 数据表名;</p>
+<h2 id="使用mat工具">使用MAT工具</h2>
 
         </article>
         <hr>
@@ -372,18 +321,6 @@
             
                 
                     
-                        
-                        <h2 id="similar_posts">Similar Posts</h2>
-                        <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="http://localhost:4000/2017/01/11/linux-install-mysql/">Linux 安装 MySql
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
             
         
@@ -401,20 +338,16 @@
                 
             
         
-        
-            </ul>
         
 
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2017/01/11/linux-install-mysql/">Linux 安装 MySql</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/02/21/jvd/">Java我见之（一）</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2017/01/15/mac-install-jekyll/">Mac 安装 Jekyll</a></p>
         
     </div>
 </div>
@@ -423,7 +356,7 @@
         <h2 id="comments">Comments</h2>
         
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="http://localhost:4000/2017/01/11/mysql-add-user/" data-title="MySQL添加用户、删除用户与授权" data-url="http://localhost:4000/2017/01/11/mysql-add-user/"></div>
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/02/21/property-optimize/" data-title="Android 我见知 - 性能优化" data-url="http://localhost:4000/2017/02/21/property-optimize/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

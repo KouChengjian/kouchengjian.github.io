@@ -146,6 +146,207 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2017/02/21/property-optimize/">Android 我见知 - 性能优化</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-02-21
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Android" title="Category: Android" rel="category">Android</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Android 我见知" title="Tag: Android 我见知" rel="tag">Android 我见知</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#布局优化" id="markdown-toc-布局优化">布局优化</a>    <ul>
+      <li><a href="#android-ui渲染机制" id="markdown-toc-android-ui渲染机制">Android UI渲染机制</a></li>
+      <li><a href="#避免过度绘制overdraw" id="markdown-toc-避免过度绘制overdraw">避免过度绘制Overdraw</a></li>
+      <li><a href="#优化布局层级" id="markdown-toc-优化布局层级">优化布局层级</a></li>
+      <li><a href="#避免嵌套过多无用布局" id="markdown-toc-避免嵌套过多无用布局">避免嵌套过多无用布局</a></li>
+      <li><a href="#hierarchy-viewer" id="markdown-toc-hierarchy-viewer">Hierarchy Viewer</a></li>
+    </ul>
+  </li>
+  <li><a href="#内存优化" id="markdown-toc-内存优化">内存优化</a>    <ul>
+      <li><a href="#什么是内存" id="markdown-toc-什么是内存">什么是内存</a></li>
+      <li><a href="#获取android系统内存信息" id="markdown-toc-获取android系统内存信息">获取Android系统内存信息</a></li>
+      <li><a href="#内存回收" id="markdown-toc-内存回收">内存回收</a></li>
+      <li><a href="#内存优化-1" id="markdown-toc-内存优化-1">内存优化</a></li>
+    </ul>
+  </li>
+  <li><a href="#lint工具" id="markdown-toc-lint工具">Lint工具</a></li>
+  <li><a href="#使用as的memory-monitor工具" id="markdown-toc-使用as的memory-monitor工具">使用AS的Memory Monitor工具</a></li>
+  <li><a href="#使用traceview工具" id="markdown-toc-使用traceview工具">使用TraceView工具</a></li>
+  <li><a href="#使用mat工具" id="markdown-toc-使用mat工具">使用MAT工具</a></li>
+</ul>
+
+<h2 id="布局优化">布局优化</h2>
+<h3 id="android-ui渲染机制">Android UI渲染机制</h3>
+<p>要保持画面的流畅，需要保证画面的帧率达到40fps每秒到60fps每秒。系统通过VSYNC信号触发对UI的渲染，重绘，期间隔时间为16ms，如果系统每次渲染的间隔都保持在16ms，那么我们所看到的界面基本流畅。如果不能保证在16ms之内渲染完成，那么就会照常丢帧现象。</p>
+
+<p>Android提供了检测UI渲染时间的工具，在开发者选项中选择Profile Rendering，选择On screen bars 。 蓝色代表测量绘制Display List的时间， 红绳代表OpenGL渲染时间，还死代表GPU处理时间，绿色代表VSYNC时间16ms。</p>
+
+<h3 id="避免过度绘制overdraw">避免过度绘制Overdraw</h3>
+<p>过度绘制会浪费很多的CPU，GPU资源
+在开放者选项中使用 Enable GPU OverDraw 来检查，优化布局，增大蓝色区域，减少红色区域。</p>
+
+<h3 id="优化布局层级">优化布局层级</h3>
+<p>降低View树的高度，Google在API文档中建议View树高度不宜超过10层。</p>
+
+<h3 id="避免嵌套过多无用布局">避免嵌套过多无用布局</h3>
+<p>使用<include>标签重用Layout。<br />
+使用<ViewStub>实现View的延迟加载</ViewStub></include></p>
+
+<h3 id="hierarchy-viewer">Hierarchy Viewer</h3>
+<p>这个只有非加密过的手机可以使用，加密手机可以使用开源项目 View Server ，然后进行分析</p>
+
+<h2 id="内存优化">内存优化</h2>
+<h3 id="什么是内存">什么是内存</h3>
+<p><a href="">请点击</a></p>
+
+<h3 id="获取android系统内存信息">获取Android系统内存信息</h3>
+<p>通过setting - Developer options - Process Stats打开。</p>
+
+<h3 id="内存回收">内存回收</h3>
+<p>Java是由系统自动回收的（GC），但是合适进行开发者无法控制，即使调用System.gc()方法，也只是建议系统GC。</p>
+
+<h3 id="内存优化-1">内存优化</h3>
+<ul>
+  <li>Bitmap优化
+    <ul>
+      <li>即使回收内存</li>
+      <li>使用图片缓存</li>
+    </ul>
+  </li>
+  <li>代码优化
+    <ul>
+      <li>对常量使用static修饰符。</li>
+      <li>使用静态方法，静态方法比普通方法提高15%左右的访问速度。</li>
+      <li>减少不必要的成员变量。</li>
+      <li>减少不必要的对象。</li>
+      <li>尽量不要使用枚举。</li>
+      <li>对Cursor、Receiver、Sensor、File等对象，要非常注意对他们的创建、回收、注册，解注册。</li>
+      <li>避免使用IOC框架，IOC通常使用注解，反射来进行实现，虽然Java对反射的效率已经进行了很好的优化，但是大量使用反射依然会带来性能下降问题。</li>
+      <li>使用RenderScript、OpenGL来进行非常复杂的绘图操作。</li>
+      <li>使用SurfaceView来替代View进行大量、频繁的绘图操作</li>
+      <li>尽量使用视图缓存，而不是每次都执行inflate()方法解析视图。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lint工具">Lint工具</h2>
+<p>eclipse和Android studio都集成自带。</p>
+
+<h2 id="使用as的memory-monitor工具">使用AS的Memory Monitor工具</h2>
+
+<h2 id="使用traceview工具">使用TraceView工具</h2>
+
+<h2 id="使用mat工具">使用MAT工具</h2>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/02/21/property-optimize/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
+                  <a class="post-link" href="/2017/02/21/jvd/">Java我见之（一）</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2017-02-21
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#Java我见之" title="Tag: Java我见之" rel="tag">Java我见之</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2017/02/21/jvd/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2017/01/19/adb/">ADB</a>
                 </h2>
                 <div class="label">
@@ -390,134 +591,6 @@
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/01/11/linux-install-mysql/">Linux 安装 MySql</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-01-11
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Java" title="Category: Java" rel="category">Java</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#MySql" title="Tag: MySql" rel="tag">MySql</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#1首先检查系统中是否已经安装了mysql" id="markdown-toc-1首先检查系统中是否已经安装了mysql">1、首先检查系统中是否已经安装了MySQL</a></li>
-</ul>
-
-<h4 id="1首先检查系统中是否已经安装了mysql">1、首先检查系统中是否已经安装了MySQL</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo netstat -tap | grep mysql
-</code></pre>
-</div>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/01/11/linux-install-mysql/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/01/10/window-install-jekyll/">Windows 安装 Jekyll</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-01-10
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#jekyll" title="Category: jekyll" rel="category">jekyll</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    
-<p>目前，网上有许多Jekyll的安装方法，大都相似，为了方便更多准备学习Jekyll的人，特翻译如下：</p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/01/10/window-install-jekyll/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -544,6 +617,10 @@
                     Recent Posts
                 </div>
                 <ul class="content-ul" recent>
+                    
+                        <li><a href="/2017/02/21/property-optimize/">Android 我见知 - 性能优化</a></li>
+                    
+                        <li><a href="/2017/02/21/jvd/">Java我见之（一）</a></li>
                     
                         <li><a href="/2017/01/19/adb/">ADB</a></li>
                     
@@ -584,7 +661,7 @@
                             <span class="name">
                                 Java
                             </span>
-                            <span class="badge">3</span>
+                            <span class="badge">4</span>
                         </a>
                     </li>
                     
@@ -593,7 +670,7 @@
                             <span class="name">
                                 Android
                             </span>
-                            <span class="badge">1</span>
+                            <span class="badge">2</span>
                         </a>
                     </li>
                     
@@ -641,6 +718,20 @@
                       
                       
                       <a href="/tag/#ADB" style="font-size: 9pt; color: #999;">ADB</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Java我见之" style="font-size: 9pt; color: #999;">Java我见之</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#Android 我见知" style="font-size: 9pt; color: #999;">Android 我见知</a>
                     
                 </div>
             </div>
