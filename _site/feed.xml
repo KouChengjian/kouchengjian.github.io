@@ -5,120 +5,32 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Feb 2017 13:49:03 +0800</pubDate>
-    <lastBuildDate>Tue, 21 Feb 2017 13:49:03 +0800</lastBuildDate>
+    <pubDate>Thu, 23 Feb 2017 20:15:22 +0800</pubDate>
+    <lastBuildDate>Thu, 23 Feb 2017 20:15:22 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
-        <title>Android 我见知 - 性能优化</title>
+        <title>Android 我见知（一） - 性能优化</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#布局优化&quot; id=&quot;markdown-toc-布局优化&quot;&gt;布局优化&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#android-ui渲染机制&quot; id=&quot;markdown-toc-android-ui渲染机制&quot;&gt;Android UI渲染机制&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#避免过度绘制overdraw&quot; id=&quot;markdown-toc-避免过度绘制overdraw&quot;&gt;避免过度绘制Overdraw&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#优化布局层级&quot; id=&quot;markdown-toc-优化布局层级&quot;&gt;优化布局层级&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#避免嵌套过多无用布局&quot; id=&quot;markdown-toc-避免嵌套过多无用布局&quot;&gt;避免嵌套过多无用布局&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#hierarchy-viewer&quot; id=&quot;markdown-toc-hierarchy-viewer&quot;&gt;Hierarchy Viewer&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#内存优化&quot; id=&quot;markdown-toc-内存优化&quot;&gt;内存优化&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#什么是内存&quot; id=&quot;markdown-toc-什么是内存&quot;&gt;什么是内存&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#获取android系统内存信息&quot; id=&quot;markdown-toc-获取android系统内存信息&quot;&gt;获取Android系统内存信息&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#内存回收&quot; id=&quot;markdown-toc-内存回收&quot;&gt;内存回收&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#内存优化-1&quot; id=&quot;markdown-toc-内存优化-1&quot;&gt;内存优化&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#lint工具&quot; id=&quot;markdown-toc-lint工具&quot;&gt;Lint工具&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#使用as的memory-monitor工具&quot; id=&quot;markdown-toc-使用as的memory-monitor工具&quot;&gt;使用AS的Memory Monitor工具&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#使用traceview工具&quot; id=&quot;markdown-toc-使用traceview工具&quot;&gt;使用TraceView工具&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#使用mat工具&quot; id=&quot;markdown-toc-使用mat工具&quot;&gt;使用MAT工具&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;布局优化&quot;&gt;布局优化&lt;/h2&gt;
 &lt;h3 id=&quot;android-ui渲染机制&quot;&gt;Android UI渲染机制&lt;/h3&gt;
 要保持画面的流畅，需要保证画面的帧率达到40fps每秒到60fps每秒。系统通过VSYNC信号触发对UI的渲染，重绘，期间隔时间为16ms，如果系统每次渲染的间隔都保持在16ms，那么我们所看到的界面基本流畅。如果不能保证在16ms之内渲染完成，那么就会照常丢帧现象。
 
-Android提供了检测UI渲染时间的工具，在开发者选项中选择Profile Rendering，选择On screen bars 。 蓝色代表测量绘制Display List的时间， 红绳代表OpenGL渲染时间，还死代表GPU处理时间，绿色代表VSYNC时间16ms。
-
-&lt;h3 id=&quot;避免过度绘制overdraw&quot;&gt;避免过度绘制Overdraw&lt;/h3&gt;
-过度绘制会浪费很多的CPU，GPU资源
-在开放者选项中使用 Enable GPU OverDraw 来检查，优化布局，增大蓝色区域，减少红色区域。
-
-&lt;h3 id=&quot;优化布局层级&quot;&gt;优化布局层级&lt;/h3&gt;
-降低View树的高度，Google在API文档中建议View树高度不宜超过10层。
-
-&lt;h3 id=&quot;避免嵌套过多无用布局&quot;&gt;避免嵌套过多无用布局&lt;/h3&gt;
-使用&lt;include&gt;标签重用Layout。&lt;br /&gt;
-使用&lt;ViewStub&gt;实现View的延迟加载&lt;/ViewStub&gt;&lt;/include&gt;
-
-&lt;h3 id=&quot;hierarchy-viewer&quot;&gt;Hierarchy Viewer&lt;/h3&gt;
-这个只有非加密过的手机可以使用，加密手机可以使用开源项目 View Server ，然后进行分析
-
-&lt;h2 id=&quot;内存优化&quot;&gt;内存优化&lt;/h2&gt;
-&lt;h3 id=&quot;什么是内存&quot;&gt;什么是内存&lt;/h3&gt;
-&lt;a href=&quot;&quot;&gt;请点击&lt;/a&gt;
-
-&lt;h3 id=&quot;获取android系统内存信息&quot;&gt;获取Android系统内存信息&lt;/h3&gt;
-通过setting - Developer options - Process Stats打开。
-
-&lt;h3 id=&quot;内存回收&quot;&gt;内存回收&lt;/h3&gt;
-Java是由系统自动回收的（GC），但是合适进行开发者无法控制，即使调用System.gc()方法，也只是建议系统GC。
-
-&lt;h3 id=&quot;内存优化-1&quot;&gt;内存优化&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Bitmap优化
-    &lt;ul&gt;
-      &lt;li&gt;即使回收内存&lt;/li&gt;
-      &lt;li&gt;使用图片缓存&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;代码优化
-    &lt;ul&gt;
-      &lt;li&gt;对常量使用static修饰符。&lt;/li&gt;
-      &lt;li&gt;使用静态方法，静态方法比普通方法提高15%左右的访问速度。&lt;/li&gt;
-      &lt;li&gt;减少不必要的成员变量。&lt;/li&gt;
-      &lt;li&gt;减少不必要的对象。&lt;/li&gt;
-      &lt;li&gt;尽量不要使用枚举。&lt;/li&gt;
-      &lt;li&gt;对Cursor、Receiver、Sensor、File等对象，要非常注意对他们的创建、回收、注册，解注册。&lt;/li&gt;
-      &lt;li&gt;避免使用IOC框架，IOC通常使用注解，反射来进行实现，虽然Java对反射的效率已经进行了很好的优化，但是大量使用反射依然会带来性能下降问题。&lt;/li&gt;
-      &lt;li&gt;使用RenderScript、OpenGL来进行非常复杂的绘图操作。&lt;/li&gt;
-      &lt;li&gt;使用SurfaceView来替代View进行大量、频繁的绘图操作&lt;/li&gt;
-      &lt;li&gt;尽量使用视图缓存，而不是每次都执行inflate()方法解析视图。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;lint工具&quot;&gt;Lint工具&lt;/h2&gt;
-eclipse和Android studio都集成自带。
-
-&lt;h2 id=&quot;使用as的memory-monitor工具&quot;&gt;使用AS的Memory Monitor工具&lt;/h2&gt;
-
-&lt;h2 id=&quot;使用traceview工具&quot;&gt;使用TraceView工具&lt;/h2&gt;
-
-&lt;h2 id=&quot;使用mat工具&quot;&gt;使用MAT工具&lt;/h2&gt;
 </description>
         <pubDate>Tue, 21 Feb 2017 13:47:00 +0800</pubDate>
         <link>http://localhost:4000/2017/02/21/property-optimize/</link>
         <guid isPermaLink="true">http://localhost:4000/2017/02/21/property-optimize/</guid>
         
-        <category>Android 我见知</category>
+        <category>Android我见知</category>
         
         
         <category>Android</category>
-        
-      </item>
-    
-      <item>
-        <title>Java我见之（一）</title>
-        <description>
-</description>
-        <pubDate>Tue, 21 Feb 2017 12:31:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/21/jvd/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/21/jvd/</guid>
-        
-        <category>Java我见之</category>
-        
-        
-        <category>Java</category>
         
       </item>
     

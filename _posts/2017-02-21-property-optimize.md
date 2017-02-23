@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Android 我见知 - 性能优化"
+title:  "Android 我见知（一） - 性能优化"
 date:   2017-02-21 13:47:00 +0800
 categories: Android
-tag: Android 我见知
+tag: Android我见知
 excerpt: 
 ---
 
@@ -13,6 +13,10 @@ excerpt:
 ## 布局优化
 ### Android UI渲染机制
 要保持画面的流畅，需要保证画面的帧率达到40fps每秒到60fps每秒。系统通过VSYNC信号触发对UI的渲染，重绘，期间隔时间为16ms，如果系统每次渲染的间隔都保持在16ms，那么我们所看到的界面基本流畅。如果不能保证在16ms之内渲染完成，那么就会照常丢帧现象。
+
+
+
+
 
 Android提供了检测UI渲染时间的工具，在开发者选项中选择Profile Rendering，选择On screen bars 。 蓝色代表测量绘制Display List的时间， 红绳代表OpenGL渲染时间，还死代表GPU处理时间，绿色代表VSYNC时间16ms。
 
