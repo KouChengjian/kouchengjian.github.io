@@ -7,7 +7,7 @@
 
 # Site settings
 title: KouChengjian
-brief-intro: Android 程序猿
+brief-intro: Android 程序猿 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://KouChengjian.github.io" # the base hostname & protocol for your site
 
