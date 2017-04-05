@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ADB"
+title:  "ADB端口被占用"
 date:   2017-01-19 14:00:00 +0800
 categories: Android
 tag: ADB
