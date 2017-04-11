@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Android开发艺术探 第四章 View工作原理</title>
+    <meta name="description" content="ViewRoot对应于ViewRootImpl类，它是连接WindowManager和DecorView的纽带，View的三大流程均是通过ViewRoot来完成的。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/04/10/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">
+    <link rel="alternate" type="application/rss+xml" title="KouChengjian" href="http://localhost:4000/feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?cf8506e0ef223e57ff6239944e5d46a4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+    <script>
+    // google analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-72449510-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">KouChengjian</a>
+        <small>Android 程序猿</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Android开发艺术探 第四章 View工作原理</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-04-10
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Android" title="Category: Android" rel="category">Android</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2" title="Tag: Android开发艺术探" rel="tag">Android开发艺术探</a-->
+        <a href="/tag/#Android开发艺术探" title="Tag: Android开发艺术探" rel="tag">Android开发艺术探</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#初识viewroot和decorview" id="markdown-toc-初识viewroot和decorview">初识ViewRoot和DecorView</a></li>
+  <li><a href="#理解measurespec" id="markdown-toc-理解measurespec">理解MeasureSpec</a>    <ul>
+      <li><a href="#measurespec" id="markdown-toc-measurespec">MeasureSpec</a></li>
+      <li><a href="#measurespec和layoutparams的对应关系" id="markdown-toc-measurespec和layoutparams的对应关系">MeasureSpec和LayoutParams的对应关系</a></li>
+    </ul>
+  </li>
+  <li><a href="#view的工作流程" id="markdown-toc-view的工作流程">View的工作流程</a>    <ul>
+      <li><a href="#measure" id="markdown-toc-measure">measure</a></li>
+      <li><a href="#layout" id="markdown-toc-layout">layout</a></li>
+      <li><a href="#draw" id="markdown-toc-draw">draw</a></li>
+    </ul>
+  </li>
+  <li><a href="#自定义view" id="markdown-toc-自定义view">自定义View</a>    <ul>
+      <li><a href="#自定义view分为" id="markdown-toc-自定义view分为">自定义View分为</a></li>
+      <li><a href="#自定义view须知" id="markdown-toc-自定义view须知">自定义View须知</a></li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li><a href="#初识ViewRoot和DecorView">初识ViewRoot和DecorView</a></li>
+  <li><a href="#理解MeasureSpec">理解MeasureSpec</a>
+    <ul>
+      <li><a href="#MeasureSpec">MeasureSpec</a></li>
+      <li><a href="#MeasureSpec和LayoutParams的对应关系">MeasureSpec和LayoutParams的对应关系</a></li>
+    </ul>
+  </li>
+  <li><a href="#View的工作流程">View的工作流程</a>
+    <ul>
+      <li><a href="#measure过程">measure过程</a></li>
+      <li><a href="#layout过程">layout过程</a></li>
+      <li><a href="#draw过程">draw过程</a></li>
+    </ul>
+  </li>
+  <li><a href="#自定义View">自定义View</a>
+    <ul>
+      <li><a href="#自定义View分为">自定义View分为</a></li>
+      <li><a href="#自定义View须知：">自定义View须知：</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="初识viewroot和decorview">初识ViewRoot和DecorView</h1>
+
+<p>1、ViewRoot对应于ViewRootImpl类，它是连接WindowManager和DecorView的纽带，View的三大流程均是通过ViewRoot来完成的。在ActivityThread中，当Activity对象被创建完毕后，会将DecorView添加到Window中，同时会创建ViewRootImpl对象，并将ViewRootImpl对象和DecorView建立连接。</p>
+
+<p>2、View的绘制流程是从ViewRoot的performTraversals方法开始的，它经过measure、layout、draw三个过程才能最终将一个View绘制出来，其中measure用来测量View的宽和高，layout用来确定View在父容器的放置位置，而draw则负责将View绘制在屏幕上。</p>
+
+<p>3、performTraversals会依次调用performMeasure、performLayout、performDraw三个方法，这三个方法分别完成顶级View的measure、layout和draw这三大流程，其中performMeasure会调用measure方法，在measure方法中又会调用onMeasure方法，在onMeasure方法中对所有的子元素进行measure过程，这个时候measure流程就会从父容器传递到子元素中了，这样就完成了一次measure过程。接着子元素就会重复父容器的measure过程，如此反复就完成了整个View树的遍历。</p>
+
+<p>4、measure过程中决定了View的宽/高，Measure完成以后，可以通过getMeasureWidth和getMeasureHeight方法来获取到View测量后的宽/高，在几乎所有的情况下它都等同于View最终的宽高。layout决定了View的四个顶点的坐标和View的实际的宽高，通过getWidth和getHeight方法可以获得最终的宽高。draw过程决定了View的显示。</p>
+
+<p>5、DecorView其实是一个FrameLayout，其中包含了一个竖直方向的LinearLayout，上面是标题栏，下面是内容栏（id为android.R.id.content）。View层的事件都先经过DecorView，然后才传给我们的View。</p>
+
+<h1 id="理解measurespec">理解MeasureSpec</h1>
+<h2 id="measurespec">MeasureSpec</h2>
+<p>MeasureSpec通过将SpecMode和SpecSize打包成一个int值来避免过多的内存分配，为了方便操作，其提供了打包和解包方法。SpecMode和SpecSize也是一个int值，一组SpecMode和SpecSize可以打包为一个MeasureSpec，而一个MeasureSpec可以通过解包的形式来得出其原始的SpecMode和SpecSize。</p>
+
+<p>SpecMode有三类，每一类都表示特殊的含义：</p>
+
+<ol>
+  <li>UNSPECIFIED   父容器不对View有任何的限制，要多大给多大，这种情况下一般用于系统内部，表示一种测量的状态。</li>
+  <li>EXACTLY   父容器已经检测出View所需要的精确大小，这个时候View的最终大小就是SpecSize所指定的值，它对应于LayoutParams中的match_parent和具体的数值这两种模式</li>
+  <li>AT_MOST   父容器指定了一个可用大小即SpecSize，View的大小不能大于这个值，具体是什么值要看不同View的具体实现。它对应于LayoutParams中的wrap_content</li>
+</ol>
+
+<h2 id="measurespec和layoutparams的对应关系">MeasureSpec和LayoutParams的对应关系</h2>
+
+<p>在View测量的时候系统会将LayoutParams在父容器的约束下转换成对应的MeasureSpec，然后再根据这个MeasureSpec来确定View测量后的宽高。</p>
+
+<p>MeasureSpec不是唯一由LayoutParams决定的，LayoutParams需要和父容器一起才能决定View的MeasureSpec，从而进一步确定View的宽高。对于DecorView，它的MeasureSpec由窗口的尺寸和其自身的LayoutParams来决定；对于普通View，它的MeasureSpec由父容器的MeasureSpec和自身的LayoutParams来共同决定</p>
+
+<p>3、当view采用固定宽高时，不管父容器的MeasureSpec是什么，view的MeasureSpec都是精确模式，并且大小是LayoutParams中的大小。
+当view的宽高是match_parent时，如果父容器的模式是精确模式，那么view也是精确模式，并且大小是父容器的剩余空间；如果父容器是最大模式，那么view也是最大模式，并且大小是不会超过父容器的剩余空间。
+当view的宽高是wrap_content时，不管父容器的模式是精确模式还是最大模式，view的模式总是最大模式，并且大小不超过父容器的剩余空间。</p>
+
+<h1 id="view的工作流程">View的工作流程</h1>
+<h2 id="measure">measure</h2>
+
+<p>1、View的measure过程和Activity的生命周期方法不是同步执行的，因此无法保证Activity执行了onCreate、onStart、onResume时某个View已经测量完毕了。如果View还没有测量完毕，那么获得的宽和高都是0。下面是四种解决该问题的方法：</p>
+
+<ul>
+  <li>Activity/View#onWindowsChanged方法</li>
+</ul>
+
+<p>onWindowFocusChanged方法表示View已经初始化完毕了，宽高已经准备好了，这个时候去获取是没问题的。这个方法会被调用多次，当Activity继续执行或者暂停执行的时候，这个方法都会被调用。</p>
+
+<ul>
+  <li>View.post(runnable)</li>
+</ul>
+
+<p>通过post将一个Runnable投递到消息队列的尾部，然后等待Looper调用此runnable的时候，View也已经初始化好了。</p>
+
+<ul>
+  <li>ViewTreeObsever</li>
+</ul>
+
+<p>使用ViewTreeObserver的众多回调方法可以完成这个功能，比如使用onGlobalLayoutListener接口，当View树的状态发生改变或者View树内部的View的可见性发生改变时，onGlobalLayout方法将被回调。伴随着View树的变化，这个方法也会被多次调用。</p>
+
+<ul>
+  <li>view.measure(int widthMeasureSpec, int heightMeasureSpec)</li>
+</ul>
+
+<p>通过手动对View进行measure来得到View的宽高，这个要根据View的LayoutParams来处理：</p>
+
+<p>match_parent:无法measure出具体的宽高</p>
+
+<p>wrap_content:如下measure，设置最大值</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>int widthMeasureSpec = MeasureSpec.makeMeasureSpec((1 &lt;&lt; 30) - 1, MeasureSpec.AT_MOST);
+
+int heightMeasureSpec = MeasureSpec.makeMeasureSpec((1 &lt;&lt; 30) - 1, MeasureSpec.AT_MOST);
+
+view.measure(widthMeasureSpec, heightMeasureSpec);
+</code></pre>
+</div>
+
+<p>精确值：例如100px</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+int widthMeasureSpec = MeasureSpec.makeMeasureSpec(100, MeasureSpec.EXACTLY);
+
+int heightMeasureSpec = MeasureSpec.makeMeasureSpec(100, MeasureSpec.EXACTLY);
+
+view.measure(widthMeasureSpec, heightMeasureSpec);
+</code></pre>
+</div>
+
+<h2 id="layout">layout</h2>
+<p>在View的默认实现中，View的测量宽高和最终宽高时相等的，只不过测量宽高形成于measure过程，而最终宽高形成于layout过程。</p>
+
+<h2 id="draw">draw</h2>
+<p>draw过程大概有下面几步：</p>
+
+<ol>
+  <li>绘制背景：background.draw(canvas);</li>
+  <li>绘制自己：onDraw();</li>
+  <li>绘制children：dispatchDraw;</li>
+  <li>绘制装饰：onDrawScrollBars</li>
+</ol>
+
+<h1 id="自定义view">自定义View</h1>
+
+<h2 id="自定义view分为">自定义View分为</h2>
+
+<ol>
+  <li>继承view重写onDraw方法</li>
+  <li>继承ViewGroup派生特殊的Layout</li>
+  <li>继承特定的View(比如TextView)</li>
+  <li>继承特殊的ViewGroup(比如LinearLayout)</li>
+</ol>
+
+<h2 id="自定义view须知">自定义View须知</h2>
+
+<ol>
+  <li>让View支持wrap_content</li>
+  <li>如果有必要，让你的View支持padding</li>
+  <li>尽量不要在View中使用Handler，没必要</li>
+  <li>View中如果有线程或者动画，需要及时停止，参考View#onDetachedFromWindow</li>
+  <li>View带有滑动嵌套情形时，需要处理好滑动冲突</li>
+</ol>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/09/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%89%E7%AB%A0/">Android开发艺术探 第三章 View的事件体系
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/08/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">Android开发艺术探 第二章 IPC机制
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/07/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%80%E7%AB%A0/">Android开发艺术探 第一章 Android生命周期和启动模式
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/04/09/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%89%E7%AB%A0/">Android开发艺术探 第三章 View的事件体系</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/04/10/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%9B%9B%E7%AB%A0/" data-title="Android开发艺术探 第四章 View工作原理" data-url="http://localhost:4000/2017/04/10/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "hygblog"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我开发路上的风景！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/KouChengjian" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:kouchengjian@163.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>        
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" class="scroll">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+  </body>
+
+</html>
