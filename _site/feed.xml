@@ -5,9 +5,23 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 11 Apr 2017 09:26:05 +0800</pubDate>
-    <lastBuildDate>Tue, 11 Apr 2017 09:26:05 +0800</lastBuildDate>
+    <pubDate>Wed, 12 Apr 2017 11:26:00 +0800</pubDate>
+    <lastBuildDate>Wed, 12 Apr 2017 11:26:00 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Android开发艺术探 第七章 Android动画深入分析</title>
+        <description>Android动画可以分成三种：View动画，帧动画，属性动画。帧动画也属于View动画。</description>
+        <pubDate>Wed, 12 Apr 2017 11:21:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/12/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%83%E7%AB%A0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/12/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%83%E7%AB%A0/</guid>
+        
+        <category>Android开发艺术探</category>
+        
+        
+        <category>Android</category>
+        
+      </item>
     
       <item>
         <title>Android开发艺术探 第四章 View工作原理</title>
@@ -173,24 +187,6 @@ Mac下Jekyll安装需要环境支持Ruby，Mac自带，如果没有请安装
         
         
         <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>MySQL添加用户、删除用户与授权</title>
-        <description>
-MySql中添加用户,新建数据库,用户授权,删除用户,修改密码(注意每行后边都跟个;表示一个命令语句结束)
-&lt;br /&gt;
-
-</description>
-        <pubDate>Wed, 11 Jan 2017 16:50:02 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/11/mysql-add-user/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/11/mysql-add-user/</guid>
-        
-        <category>MySql</category>
-        
-        
-        <category>Java</category>
         
       </item>
     
