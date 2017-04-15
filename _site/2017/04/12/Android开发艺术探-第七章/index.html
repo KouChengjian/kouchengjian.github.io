@@ -215,11 +215,64 @@
 
 <h1 id="view动画">View动画</h1>
 <h2 id="view动画的种类">View动画的种类</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>标签</th>
+      <th>子类</th>
+      <th>效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>平移动画</td>
+      <td>&lt; translate &gt;</td>
+      <td>TranslateAnimation</td>
+      <td>移动View</td>
+    </tr>
+    <tr>
+      <td>缩放动画</td>
+      <td>&lt; scale &gt;</td>
+      <td>ScaleAnimation</td>
+      <td>放大或者缩小View</td>
+    </tr>
+    <tr>
+      <td>旋转动画</td>
+      <td>&lt; rotate &gt;</td>
+      <td>RotateAnimation</td>
+      <td>旋转View</td>
+    </tr>
+    <tr>
+      <td>透明度动画</td>
+      <td>&lt; alpha &gt;</td>
+      <td>AlphaAnimation</td>
+      <td>改变View的透明度</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>&lt; set &gt; 标签标示动画合集，对应AnimationSet类，它可以包含诺干个动画，并且它的内部也是可以嵌套其它动画集合的，它的两个属性含义：
+1、android:interpolator  标示动画插值器，插值器影响动画速度，比如非匀速动画就要通过插值器来控制。</p>
+
+<p>2、android:ShareInterpolator  标示集合的动画是否和集合共享同一个插值器。</p>
+
 <h2 id="自定义view动画">自定义View动画</h2>
+<p>派生一种新动画只需要继承Animation这个抽象类，然后重写initialize和applyTransformation方法，在initalize中初始化工作，在applyTransformation进行相应的矩阵变化，很多时候需要使用Camera来简化矩阵变化过程。</p>
 <h2 id="帧动画">帧动画</h2>
+<p>帧动画是顺序播放一组预先定义好的图片，类似于电影播放。</p>
 <h1 id="view动画特殊使用场景">View动画特殊使用场景</h1>
 <h2 id="layoutanimation">LayoutAnimation</h2>
+<p>LayoutAnimation作用于ViewGroup，为ViewGroup指定一个动画，这样当它的子元素出场时都会有这种动画，常用语ListView。</p>
 <h2 id="activity的切换效果">Activity的切换效果</h2>
+<p>Activity切换效果，主要用到overriderPendingTransition(int enterAnim , int exitAnim),这个方法必须在startActivity(Intent)或者finish()之后被调用才能生效。</p>
+
+<ul>
+  <li>enterAnim Activity打开时，所调用动画资源的id。</li>
+  <li>exitAnim Activity暂停时，所调用动画资源id。</li>
+</ul>
+
 <h1 id="属性动画">属性动画</h1>
 <h2 id="使用属性动画">使用属性动画</h2>
 <h2 id="理解插值器和估值器">理解插值器和估值器</h2>

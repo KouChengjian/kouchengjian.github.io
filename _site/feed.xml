@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Apr 2017 11:26:00 +0800</pubDate>
-    <lastBuildDate>Wed, 12 Apr 2017 11:26:00 +0800</lastBuildDate>
+    <pubDate>Sat, 15 Apr 2017 14:24:02 +0800</pubDate>
+    <lastBuildDate>Sat, 15 Apr 2017 14:24:02 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -103,8 +103,8 @@ ADB，即 Android Debug Bridge，它是 Android 开发/测试人员不可替代�
 
 </description>
         <pubDate>Wed, 05 Apr 2017 14:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/04/05/adb-common-order/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/05/adb-common-order/</guid>
+        <link>http://localhost:4000/2017/04/05/ADB%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/05/ADB%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
         
         <category>ADB</category>
         
@@ -128,8 +128,8 @@ ADB，即 Android Debug Bridge，它是 Android 开发/测试人员不可替代�
 
 </description>
         <pubDate>Tue, 21 Feb 2017 13:47:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/21/property-optimize/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/21/property-optimize/</guid>
+        <link>http://localhost:4000/2017/02/21/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/21/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
         
         <category>Android我见知</category>
         
@@ -146,8 +146,8 @@ ADB，即 Android Debug Bridge，它是 Android 开发/测试人员不可替代�
 
 </description>
         <pubDate>Thu, 19 Jan 2017 14:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/19/adb_occupy/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/19/adb_occupy/</guid>
+        <link>http://localhost:4000/2017/01/19/ADB%E5%8D%A0%E7%94%A8/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/01/19/ADB%E5%8D%A0%E7%94%A8/</guid>
         
         <category>ADB</category>
         
