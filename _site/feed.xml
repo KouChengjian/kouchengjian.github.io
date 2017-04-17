@@ -5,13 +5,27 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 15 Apr 2017 14:24:02 +0800</pubDate>
-    <lastBuildDate>Sat, 15 Apr 2017 14:24:02 +0800</lastBuildDate>
+    <pubDate>Mon, 17 Apr 2017 11:36:50 +0800</pubDate>
+    <lastBuildDate>Mon, 17 Apr 2017 11:36:50 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
+        <title>Android开发艺术探 第八章 理解Window和WindowManager</title>
+        <description>Window是一个抽象类，它的具体实现是PhoneWindow。WindowManager是外界访问Window的入口，Window的具体实现位于WindowManagerService中，WindowManager和WindowManagerService的交互是一个IPC过程。Android中所有的视图都是通过Window来呈现的，不管是Activity、Dialog还是Toast，它们的视图实际上都是附加在Window上的，因此Window实际是View的直接管理者。</description>
+        <pubDate>Mon, 17 Apr 2017 11:30:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/17/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%85%AB%E7%AB%A0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/17/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%85%AB%E7%AB%A0/</guid>
+        
+        <category>Android开发艺术探</category>
+        
+        
+        <category>Android</category>
+        
+      </item>
+    
+      <item>
         <title>Android开发艺术探 第七章 Android动画深入分析</title>
-        <description>Android动画可以分成三种：View动画，帧动画，属性动画。帧动画也属于View动画。</description>
+        <description>Android动画可以分成三种：View动画，帧动画，属性动画。帧动画也属于View动画。View动画只能改变现实效果，不能真正改变View的属性。</description>
         <pubDate>Wed, 12 Apr 2017 11:21:00 +0800</pubDate>
         <link>http://localhost:4000/2017/04/12/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%83%E7%AB%A0/</link>
         <guid isPermaLink="true">http://localhost:4000/2017/04/12/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%83%E7%AB%A0/</guid>
@@ -170,23 +184,6 @@ ADB，即 Android Debug Bridge，它是 Android 开发/测试人员不可替代�
         
         
         <category>Java</category>
-        
-      </item>
-    
-      <item>
-        <title>Mac 安装 Jekyll</title>
-        <description>
-Mac下Jekyll安装需要环境支持Ruby，Mac自带，如果没有请安装
-
-</description>
-        <pubDate>Sun, 15 Jan 2017 13:08:02 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/15/mac-install-jekyll/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/15/mac-install-jekyll/</guid>
-        
-        <category>jekyll</category>
-        
-        
-        <category>jekyll</category>
         
       </item>
     
