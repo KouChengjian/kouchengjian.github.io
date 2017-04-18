@@ -2,8 +2,8 @@
 layout: post
 title:  "Windows 安装 Jekyll"
 date:   2017-01-10 09:48:01 +0800
-categories: jekyll
-tag: jekyll
+categories: Jekyll
+tag: Jekyll
 #excerpt: 当年创建 jekyll 时默认的一篇文章，没什么意义，我也一直没删除，留个纪念吧。
 ---
 

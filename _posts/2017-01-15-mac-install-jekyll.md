@@ -2,8 +2,8 @@
 layout: post
 title:  "Mac 安装 Jekyll"
 date:   2017-01-15 13:08:02 +0800
-categories: jekyll
-tag: jekyll
+categories: Jekyll
+tag: Jekyll
 #excerpt: 
 ---
 
