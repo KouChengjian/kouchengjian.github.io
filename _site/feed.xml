@@ -5,9 +5,37 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Apr 2017 11:36:50 +0800</pubDate>
-    <lastBuildDate>Mon, 17 Apr 2017 11:36:50 +0800</lastBuildDate>
+    <pubDate>Fri, 21 Apr 2017 11:23:20 +0800</pubDate>
+    <lastBuildDate>Fri, 21 Apr 2017 11:23:20 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Java核心技术 卷1 第四章 对象与类</title>
+        <description>主要介绍了面向对象程序设计、如何创建标准Java类库中的类对象、如何编写自己的类。</description>
+        <pubDate>Fri, 21 Apr 2017 11:17:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/21/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/21/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+        
+        <category>Java程序设计概述</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
+    
+      <item>
+        <title>Android开发艺术探 第十章 Android的消息机制</title>
+        <description>Android的消息机制主要指Handler的运行机制，Handler的运行需要底层的MessageQueue和Looper的支撑。</description>
+        <pubDate>Tue, 18 Apr 2017 11:20:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/18/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E7%AB%A0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/18/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E7%AB%A0/</guid>
+        
+        <category>Android开发艺术探</category>
+        
+        
+        <category>Android</category>
+        
+      </item>
     
       <item>
         <title>Android开发艺术探 第八章 理解Window和WindowManager</title>
@@ -149,41 +177,6 @@ ADB，即 Android Debug Bridge，它是 Android 开发/测试人员不可替代�
         
         
         <category>Android</category>
-        
-      </item>
-    
-      <item>
-        <title>ADB端口被占用</title>
-        <description>
-在pc下经常会发生adb端口被占用，遇到这种情况只要找到那个服务kill掉就好了&lt;br /&gt;
-（经常是豌豆荚或者酷狗，运行jekyll时候4000端口经常被Foxmail的一个服务占用/(ㄒoㄒ)/~~）
-
-</description>
-        <pubDate>Thu, 19 Jan 2017 14:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/19/ADB%E5%8D%A0%E7%94%A8/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/19/ADB%E5%8D%A0%E7%94%A8/</guid>
-        
-        <category>ADB</category>
-        
-        
-        <category>Android</category>
-        
-      </item>
-    
-      <item>
-        <title>Java学习要点 </title>
-        <description>
-想成为Java大牛吗?不妨来学习这25个要点。
-
-</description>
-        <pubDate>Mon, 16 Jan 2017 11:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/01/16/java-main-point/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/01/16/java-main-point/</guid>
-        
-        <category>Java</category>
-        
-        
-        <category>Java</category>
         
       </item>
     

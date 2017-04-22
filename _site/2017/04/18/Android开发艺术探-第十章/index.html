@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Welcome to Jekyll!</title>
-    <meta name="description" content="Jekyll是一个静态网站生成工具。它允许用户使用HTML、Markdown或Textile来建立静态页面，然后通过模板引擎Liquid（Liquid Templating Engine）来运行.">
+    <title>Android开发艺术探 第十章 Android的消息机制</title>
+    <meta name="description" content="Android的消息机制主要指Handler的运行机制，Handler的运行需要底层的MessageQueue和Looper的支撑。">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/2017/01/10/welcome-to-jekyll/">
+    <link rel="canonical" href="http://localhost:4000/2017/04/18/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E7%AB%A0/">
     <link rel="alternate" type="application/rss+xml" title="KouChengjian" href="http://localhost:4000/feed.xml ">
 
 
@@ -111,11 +111,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>Welcome to Jekyll!</h1>
+        <h1>Android开发艺术探 第十章 Android的消息机制</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2017-01-10
+                <i class="fa fa-calendar"></i>2017-04-18
             </div>
 
             <div class="label-card">
@@ -135,7 +135,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#Jekyll" title="Category: Jekyll" rel="category">Jekyll</a>
+        <a href="/category/#Android" title="Category: Android" rel="category">Android</a>
     
   
 
@@ -152,8 +152,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#Jekyll" title="Tag: Jekyll" rel="tag">Jekyll</a-->
-        <a href="/tag/#Jekyll" title="Tag: Jekyll" rel="tag">Jekyll</a>
+        <!--a href="/tag/#Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2" title="Tag: Android开发艺术探" rel="tag">Android开发艺术探</a-->
+        <a href="/tag/#Android开发艺术探" title="Tag: Android开发艺术探" rel="tag">Android开发艺术探</a>
     
   
 
@@ -165,18 +165,41 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#诫子书" id="markdown-toc-诫子书">诫子书</a></li>
+  <li><a href="#android消息机制概述" id="markdown-toc-android消息机制概述">Android消息机制概述</a></li>
+  <li><a href="#android消息机制分析" id="markdown-toc-android消息机制分析">Android消息机制分析</a>    <ul>
+      <li><a href="#threadlocal的工作原理" id="markdown-toc-threadlocal的工作原理">ThreadLocal的工作原理</a></li>
+      <li><a href="#消息队列的工作原理" id="markdown-toc-消息队列的工作原理">消息队列的工作原理</a></li>
+      <li><a href="#looper的工作原理" id="markdown-toc-looper的工作原理">Looper的工作原理</a></li>
+      <li><a href="#handle的工作原理" id="markdown-toc-handle的工作原理">Handle的工作原理</a></li>
+    </ul>
+  </li>
+  <li><a href="#主线程的消息循环" id="markdown-toc-主线程的消息循环">主线程的消息循环</a></li>
 </ul>
 
-<h2 id="诫子书">诫子书</h2>
+<ul>
+  <li><a href="Android消息机制概述">Android消息机制概述</a></li>
+  <li><a href="Android消息机制分析">Android消息机制分析</a>
+    <ul>
+      <li><a href="ThreadLocal的工作原理">ThreadLocal的工作原理</a></li>
+      <li><a href="消息队列的工作原理">消息队列的工作原理</a></li>
+      <li><a href="Looper的工作原理">Looper的工作原理</a></li>
+      <li><a href="Handle的工作原理">Handle的工作原理</a></li>
+    </ul>
+  </li>
+  <li><a href="主线程的消息循环">主线程的消息循环</a></li>
+</ul>
 
-<p><img src="/styles/images/jiezishu.jpg" alt="诫子书" /></p>
+<h1 id="android消息机制概述">Android消息机制概述</h1>
+<p>Android的消息机制主要指Handler的运行机制以及Handler所附带的MesssageQueue和Loop而的工作过程。</p>
 
-<p><a href="#">诸葛亮</a></p>
+<h1 id="android消息机制分析">Android消息机制分析</h1>
+<h2 id="threadlocal的工作原理">ThreadLocal的工作原理</h2>
+<p>ThreadLocal是一个线程内部的数据存储类，通过它可以在指定的线程中存储数据，数据存储之后，只有在指定线程中可以获取到存储数据。</p>
 
-<p>夫君子之行，静以修身，俭以养德。非淡泊(澹泊)无以明志，非宁静无以致远。夫学须静也，才须学也。非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能冶性。
-年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
-
+<h2 id="消息队列的工作原理">消息队列的工作原理</h2>
+<h2 id="looper的工作原理">Looper的工作原理</h2>
+<h2 id="handle的工作原理">Handle的工作原理</h2>
+<h1 id="主线程的消息循环">主线程的消息循环</h1>
 
         </article>
         <hr>
@@ -194,12 +217,97 @@
             
                 
                     
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/17/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%85%AB%E7%AB%A0/">Android开发艺术探 第八章 理解Window和WindowManager
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
                 
             
         
             
             
                 
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/12/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%83%E7%AB%A0/">Android开发艺术探 第七章 Android动画深入分析
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/10/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">Android开发艺术探 第四章 View工作原理
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/09/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%89%E7%AB%A0/">Android开发艺术探 第三章 View的事件体系
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/08/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">Android开发艺术探 第二章 IPC机制
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/07/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%80%E7%AB%A0/">Android开发艺术探 第一章 Android生命周期和启动模式
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
@@ -225,44 +333,20 @@
                 
             
         
-            
-            
-                
-                    
-                
-            
         
-            
-            
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-            
-        
+            </ul>
         
 
         <div class="post-recent">
     <div class="pre">
         
+        <p><strong>上一篇</strong> <a href="/2017/04/17/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%85%AB%E7%AB%A0/">Android开发艺术探 第八章 理解Window和WindowManager</a></p>
+        
     </div>
     <div class="nex">
 
         
-        <p><strong>下一篇</strong> <a href="/2017/01/10/window-install-jekyll/">Windows 安装 Jekyll</a></p>
+        <p><strong>下一篇</strong> <a href="/2017/04/21/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">Java核心技术 卷1 第四章 对象与类</a></p>
         
     </div>
 </div>
@@ -271,7 +355,7 @@
         <h2 id="comments">Comments</h2>
         
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="http://localhost:4000/2017/01/10/welcome-to-jekyll/" data-title="Welcome to Jekyll!" data-url="http://localhost:4000/2017/01/10/welcome-to-jekyll/"></div>
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/04/18/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E7%AB%A0/" data-title="Android开发艺术探 第十章 Android的消息机制" data-url="http://localhost:4000/2017/04/18/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E7%AB%A0/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
