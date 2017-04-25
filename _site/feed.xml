@@ -5,9 +5,23 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Apr 2017 11:23:20 +0800</pubDate>
-    <lastBuildDate>Fri, 21 Apr 2017 11:23:20 +0800</lastBuildDate>
+    <pubDate>Tue, 25 Apr 2017 10:08:48 +0800</pubDate>
+    <lastBuildDate>Tue, 25 Apr 2017 10:08:48 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Android开发艺术探 第十五章 Android性能优化</title>
+        <description>Android不可能无限制的使用内存和CPU资源，过多的使用内存会导致内存溢出，即OOM。而过多的使用CPU资源，一般是指做大量的耗时任务，会导致手机变的卡顿甚至出现程序无法响应的情况，即ANR。</description>
+        <pubDate>Tue, 25 Apr 2017 09:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/25/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/25/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0/</guid>
+        
+        <category>Android开发艺术探</category>
+        
+        
+        <category>Android</category>
+        
+      </item>
     
       <item>
         <title>Java核心技术 卷1 第四章 对象与类</title>
@@ -149,31 +163,6 @@ ADB，即 Android Debug Bridge，它是 Android 开发/测试人员不可替代�
         <guid isPermaLink="true">http://localhost:4000/2017/04/05/ADB%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
         
         <category>ADB</category>
-        
-        
-        <category>Android</category>
-        
-      </item>
-    
-      <item>
-        <title>Android 我见知（一） - 性能优化</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#布局优化&quot; id=&quot;markdown-toc-布局优化&quot;&gt;布局优化&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#android-ui渲染机制&quot; id=&quot;markdown-toc-android-ui渲染机制&quot;&gt;Android UI渲染机制&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;布局优化&quot;&gt;布局优化&lt;/h2&gt;
-&lt;h3 id=&quot;android-ui渲染机制&quot;&gt;Android UI渲染机制&lt;/h3&gt;
-要保持画面的流畅，需要保证画面的帧率达到40fps每秒到60fps每秒。系统通过VSYNC信号触发对UI的渲染，重绘，期间隔时间为16ms，如果系统每次渲染的间隔都保持在16ms，那么我们所看到的界面基本流畅。如果不能保证在16ms之内渲染完成，那么就会照常丢帧现象。
-
-</description>
-        <pubDate>Tue, 21 Feb 2017 13:47:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/02/21/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/02/21/Android%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
-        
-        <category>Android我见知</category>
         
         
         <category>Android</category>

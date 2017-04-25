@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Android开发艺术探 第一章 Android生命周期和启动模式</title>
-    <meta name="description" content="  Android的生命周期和启动模式          正常情况生命周期分析      异常情况生命周期分析        Activity的启动模式          Activity的LaunchMode      Activity的Flags        IntentFilter的匹配 规则">
+    <title>Android开发艺术探 第十五章 Android性能优化</title>
+    <meta name="description" content="Android不可能无限制的使用内存和CPU资源，过多的使用内存会导致内存溢出，即OOM。而过多的使用CPU资源，一般是指做大量的耗时任务，会导致手机变的卡顿甚至出现程序无法响应的情况，即ANR。">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/2017/04/07/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%80%E7%AB%A0/">
+    <link rel="canonical" href="http://localhost:4000/2017/04/25/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0/">
     <link rel="alternate" type="application/rss+xml" title="KouChengjian" href="http://localhost:4000/feed.xml ">
 
 
@@ -111,11 +111,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>Android开发艺术探 第一章 Android生命周期和启动模式</h1>
+        <h1>Android开发艺术探 第十五章 Android性能优化</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2017-04-07
+                <i class="fa fa-calendar"></i>2017-04-25
             </div>
 
             <div class="label-card">
@@ -165,79 +165,130 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#android的生命周期和启动模式" id="markdown-toc-android的生命周期和启动模式">Android的生命周期和启动模式</a>    <ul>
-      <li><a href="#正常情况生命周期分析" id="markdown-toc-正常情况生命周期分析">正常情况生命周期分析</a></li>
-      <li><a href="#异常情况生命周期分析" id="markdown-toc-异常情况生命周期分析">异常情况生命周期分析</a></li>
+  <li><a href="#android性能优化的方法" id="markdown-toc-android性能优化的方法">Android性能优化的方法</a></li>
+  <li><a href="#布局优化" id="markdown-toc-布局优化">布局优化</a>    <ul>
+      <li><a href="#绘制优化" id="markdown-toc-绘制优化">绘制优化</a></li>
+      <li><a href="#内存泄漏优化" id="markdown-toc-内存泄漏优化">内存泄漏优化</a></li>
+      <li><a href="#listview和bitmap优化" id="markdown-toc-listview和bitmap优化">ListView和Bitmap优化</a></li>
+      <li><a href="#线程优化" id="markdown-toc-线程优化">线程优化</a></li>
+      <li><a href="#一些性能优化建议" id="markdown-toc-一些性能优化建议">一些性能优化建议</a></li>
     </ul>
   </li>
-  <li><a href="#activity的启动模式" id="markdown-toc-activity的启动模式">Activity的启动模式</a>    <ul>
-      <li><a href="#activity的launchmode" id="markdown-toc-activity的launchmode">Activity的LaunchMode</a></li>
-      <li><a href="#activity的flags" id="markdown-toc-activity的flags">Activity的Flags</a></li>
-    </ul>
-  </li>
-  <li><a href="#intentfilter的匹配规则" id="markdown-toc-intentfilter的匹配规则">IntentFilter的匹配规则</a></li>
+  <li><a href="#内存泄漏分析之mat工具" id="markdown-toc-内存泄漏分析之mat工具">内存泄漏分析之MAT工具</a></li>
+  <li><a href="#提高程序的可维护性" id="markdown-toc-提高程序的可维护性">提高程序的可维护性</a></li>
 </ul>
 
 <ul>
-  <li><a href="#Android的生命周期和启动模式">Android的生命周期和启动模式</a>
+  <li><a href="Android性能优化的方法">Android性能优化的方法</a>
     <ul>
-      <li><a href="#正常情况生命周期分析">正常情况生命周期分析</a></li>
-      <li><a href="#异常情况生命周期分析">异常情况生命周期分析</a></li>
+      <li><a href="布局优化">布局优化</a></li>
+      <li><a href="绘制优化">绘制优化</a></li>
+      <li><a href="内存泄漏优化">内存泄漏优化</a></li>
+      <li><a href="ListView和Bitmap优化">ListView和Bitmap优化</a></li>
+      <li><a href="线程优化">线程优化</a></li>
+      <li><a href="一些性能优化建议">一些性能优化建议</a></li>
     </ul>
   </li>
-  <li><a href="#Activity的启动模式">Activity的启动模式</a>
-    <ul>
-      <li><a href="#Activity的LaunchMode">Activity的LaunchMode</a></li>
-      <li><a href="#Activity的Flags">Activity的Flags</a></li>
-    </ul>
-  </li>
-  <li><a href="#IntentFilter的匹配规则">IntentFilter的匹配 规则</a></li>
+  <li><a href="内存泄漏分析之MAT工具">内存泄漏分析之MAT工具</a></li>
+  <li><a href="提高程序的可维护性">提高程序的可维护性</a></li>
 </ul>
 
-<h1 id="android的生命周期和启动模式">Android的生命周期和启动模式</h1>
-<h2 id="正常情况生命周期分析">正常情况生命周期分析</h2>
-<p>(1)第一次启动Activity，回调如下：onCreate -&gt; onStart -&gt; onResume。</p>
+<h1 id="android性能优化的方法">Android性能优化的方法</h1>
+<hr />
+<p>Android不可能无限制的使用内存和CPU资源，过多的使用内存会导致内存溢出，即OOM。而过多的使用CPU资源，一般是指做大量的耗时任务，会导致手机变的卡顿甚至出现程序无法响应的情况，即ANR。</p>
 
-<p>(2)当打开新的Activity或者切换到桌面时，回调如下：onpause -&gt; onStop。如果新Activity是透明主题时，旧Activity不会走onStop。</p>
+<h1 id="布局优化">布局优化</h1>
 
-<p>(3)当用户在回到原Activity时，回调如下：OnRestart -&gt; onStart -&gt; onResume。</p>
+<p>1、如何进行布局优化？</p>
 
-<p>(4)当用户安心break时，回调如下： onPause -&gt; onStop -&gt; onDestroy。</p>
+<ul>
+  <li>首先删除布局中无用的控件和层级</li>
+  <li>其次有选择的使用性能较低的ViewGroup。</li>
+  <li>布局优化的另一种手段是采用<include>标签、<merge>标签、ViewStub。<include>标签主要用于布局重用，<merge>标签一般和<include>配合使用，它可以降低减少布局的层级，而ViewStub则提供了按需加载的功能，当需要时才会将ViewStub中的布局加载到内存，提高了程序的初始化效率。</include></merge></include></merge></include></li>
+</ul>
 
-<p>(5)onStart和onPause是从是否可见这个角度来回调的，onResume和onStop是从Activity是否位于前台这个调度回调的</p>
+<p>2、<include>标签只支持android:layout_开头的属性，android:id属性例外。</include></p>
 
-<p>(6) onStart和onResume的区别是onStart可见，还没有出现在前台，无法和用户进行交互。onResume获取到焦点可以和用户交互。</p>
+<p>3、ViewStub继承了View，它非常轻量级且宽/高都是0，因此它本身并不参与任何的布局和绘制过程。ViewStub的意义在于按需加载所需的布局文件，在实际开发中，有很多布局文件在正常情况下不会显示，比如网络异常时的界面，这个时候就没有必要在整个界面初始化的时候将其加载起来，通过ViewStub就可以做到在使用的时候再加载，提高了程序初始化的性能。</p>
 
-<p>(7)Activity切换时，旧Activity的onPause会先执行，然后才会启动新的Activity；</p>
+<p>如下所示，android:id是ViewStub的id，而android:inflatedId是布局的根元素的id。</p>
 
-<h2 id="异常情况生命周期分析">异常情况生命周期分析</h2>
-<p>Activity在异常情况下被回收时，onSaveInstanceState方法会被回调，回调时机是在onStop之前，当Activity被重新创建的时候，onRestoreInstanceState方法会被回调，时序在onStart之后；</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;ViewStub android:id="@+id/xxx"
+  android:inflatedId="@+id/yyy"
+  android:layout="@layout/zzz"
+  ...
+&lt;/ViewStub&gt;
+</code></pre>
+</div>
 
-<h1 id="activity的启动模式">Activity的启动模式</h1>
-<h2 id="activity的launchmode">Activity的LaunchMode</h2>
-<p>a. standard 系统默认。每次启动会重新创建新的实例，谁启动了这个Activity，这个Activity就在谁的栈里。</p>
+<p>需要加载ViewStub中的布局的时候，可以按照如下两种方式进行：</p>
 
-<p>b. singleTop 栈顶复用模式。该Activity的onNewIntent方法会被回调，onCreate和onStart并不会被调用。</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>((ViewStub)findViewById(R.id.xx)).setVisibility(View.VISIBLE);
+</code></pre>
+</div>
 
-<p>c. singleTask 栈内复用模式。只要该Activity在一个栈中存在，都不会重新创建，onNewIntent会被回调。如果不存在，系统会先寻找是否存在需要的栈，如果不存在该栈，就创建一个任务栈，然后把这个Activity放进去；如果存在，就会创建到已经存在的这个栈中。</p>
+<p>或者</p>
 
-<p>d. singleInstance。具有此种模式的Activity只能单独存在于一个任务栈。</p>
-<h2 id="activity的flags">Activity的Flags</h2>
-<p>常用的：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>View importPanel = ((ViewStub)findViewById(R.id.stub_import)).inflate();
+</code></pre>
+</div>
 
-<p>FLAG_ACTIVITY_SINGLE_TOP = singleTop<br /></p>
+<h2 id="绘制优化">绘制优化</h2>
 
-<p>FLAG_ACTIVITY_NEW_TASK = singleTask<br /></p>
+<p>绘制优化是指View的onDraw方法要避免执行大量的操作：</p>
 
-<p>FLAG_ACTIVITY_CLEAR_TOP : 一般会和singleTask一起出现，如果Activity采用standard启动，那边会清除本身以及之上的所有Activity，重新创建，并且押入栈顶。</p>
+<ul>
+  <li>在onDraw中不要创建新的局部对象，这是因为onDraw方法可能会被频繁调用，这样就会在一瞬间产生大量的临时对象，这不仅占用了过多的内存而且还会导致系统更加频繁的gc，降低了程序的执行效率。</li>
+  <li>onDraw方法中不要指定耗时任务，也不能执行成千上万次的循环操作，View的绘制帧率保证60fps是最佳的，这就要求每帧的绘制时间不超过16ms，虽然程序很难保证16ms这个时间，但是尽量降低onDraw方法的复杂度总是切实有效的。</li>
+</ul>
 
-<h1 id="intentfilter的匹配规则">IntentFilter的匹配规则</h1>
+<h2 id="内存泄漏优化">内存泄漏优化</h2>
 
-<p>a. action匹配规则：要求intent中的action存在且必须和过滤规则中的其中一个相同 区分大小写；</p>
+<p>可能导致内存泄漏的场景很多，例如静态变量、单例模式、属性动画、AsyncTask、Handler等等</p>
 
-<p>b. category匹配规则：系统会默认加上一个android.intent.category.DEAFAULT，所以intent中可以不存在category，但如果存在就必须匹配其中一个；</p>
+<p>响应速度优化和ANR日志分析</p>
 
-<p>c. data匹配规则：data由两部分组成，mimeType和URI，要求和action相似。如果没有指定URI，URI但默认值为content和file（schema）</p>
+<ol>
+  <li>ANR出现的情况：Activity如果5秒内没有响应屏幕触摸事件或者键盘输入事件就会ANR。而BroadcastReceiver如果10s没有执行完操作也会出现ANR。</li>
+  <li>当一个进程发生了ANR之后，系统会在/data/anr目录下创建一个文件traces.txt，通过分析这个文件就能定位ANR的原因。</li>
+</ol>
+
+<h2 id="listview和bitmap优化">ListView和Bitmap优化</h2>
+
+<ol>
+  <li>ListView优化：采用ViewHolder并避免在getView方法中执行耗时操作；根据列表的滑动状态来绘制任务的执行效率；可以尝试开启硬件加速期来使ListView的滑动更加流畅。</li>
+  <li>Bitmap优化：根据需要对图片进行采样，主要是通过BitmapFactory.Options来根据需要对图片进行采样，采样主要用到了BitmapFactory.Options的inSampleSize参数。</li>
+</ol>
+
+<h2 id="线程优化">线程优化</h2>
+
+<ol>
+  <li>采用线程池，避免程序中存在大量的Thread。线程池可以重用内部的线程，从而避免了线程的创建和销毁所带来的性能开销，同时线程池还能有效的控制线程池的最大并发数，避免大量的线程因互相抢占系统资源从而导致阻塞现象的发生。</li>
+</ol>
+
+<h2 id="一些性能优化建议">一些性能优化建议</h2>
+
+<ul>
+  <li>避免 创建过多的对象</li>
+  <li>不要过多的使用枚举，枚举占用的内存空间要比整形大</li>
+  <li>常量请用static final来修饰</li>
+  <li>使用一些Android特有的数据结构，比如SparseArray和Pair等，它们都具有更好的性能</li>
+  <li>适当使用软引用和弱引用</li>
+  <li>采用内存缓存和磁盘缓存</li>
+  <li>尽量采用静态内部类，这样可以避免潜在的由于内部类而导致的内存泄漏</li>
+</ul>
+
+<h1 id="内存泄漏分析之mat工具">内存泄漏分析之MAT工具</h1>
+
+<p>MAT是功能强大的内存分析工具，主要有Histograms和Dominator Tree等功能</p>
+
+<h1 id="提高程序的可维护性">提高程序的可维护性</h1>
+
+<ol>
+  <li>命名要规范，要能正确地传达出变量或者方法的含义，少用缩写，关于变量的前缀可以参考Android源码的命名方式，比如私有成员以m开头，静态成员以s开头，常量则全部用大写字母表示，等等。</li>
+  <li>代码的排版上需要留出合理的空白来区分不同的代码块，其中同类变量的声明要放在一起，两类变量之间要留出一行空白作为区分。</li>
+  <li>合理的命名风格，仅在非常关键的代码添加注释。</li>
+</ol>
 
 
         </article>
@@ -249,32 +300,16 @@
             
                 
                     
+                
+            
+        
+            
+            
+                
+                    
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="http://localhost:4000/2017/04/25/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0/">Android开发艺术探 第十五章 Android性能优化
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
                         
                         <li class="relatedPost">
                             <a href="http://localhost:4000/2017/04/18/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E7%AB%A0/">Android开发艺术探 第十章 Android的消息机制
@@ -355,6 +390,22 @@
             
                 
                     
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/04/08/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">Android开发艺术探 第二章 IPC机制
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
                 
             
         
@@ -379,13 +430,11 @@
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2017/04/05/ADB%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">ADB常用命令</a></p>
+        <p><strong>上一篇</strong> <a href="/2017/04/21/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">Java核心技术 卷1 第四章 对象与类</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2017/04/08/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">Android开发艺术探 第二章 IPC机制</a></p>
         
     </div>
 </div>
@@ -394,7 +443,7 @@
         <h2 id="comments">Comments</h2>
         
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="http://localhost:4000/2017/04/07/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%80%E7%AB%A0/" data-title="Android开发艺术探 第一章 Android生命周期和启动模式" data-url="http://localhost:4000/2017/04/07/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E4%B8%80%E7%AB%A0/"></div>
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/04/25/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0/" data-title="Android开发艺术探 第十五章 Android性能优化" data-url="http://localhost:4000/2017/04/25/Android%E5%BC%80%E5%8F%91%E8%89%BA%E6%9C%AF%E6%8E%A2-%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
